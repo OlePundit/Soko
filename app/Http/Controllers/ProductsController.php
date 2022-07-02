@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Intervention\Image\Facades\Image;
+use App\Models\User;
 
 
 class ProductsController extends Controller
@@ -21,6 +22,17 @@ class ProductsController extends Controller
         $products = Product::whereIn('user_id', $users)->with('user')->latest()->get();
 
        return view('products.index', compact('products'));
+    }
+    public function index(User $user)
+    {
+        $productCount = Cache::remember(
+            'count.products.'. $user->id,
+            now()->addSeconds(30), 
+            function() use ($user){
+                return $user->products->count();
+        });
+
+        return view('shops.index', compact('user','productCount'));
     }
     public function create()
     {

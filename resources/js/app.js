@@ -21,6 +21,8 @@ window.Vue = require('vue').default;
 
 Vue.component('connect-button', require('./components/ConnectButton.vue').default);
 
+Vue.component('shop-link', require('./components/ShopLink.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
