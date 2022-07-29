@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.baseauth')
 
-@section('content')
+@section('auth')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -63,7 +63,7 @@
 
                         <div class="row mb-2">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-warning text-white">
+                                <button type="submit" class="btn btn-primary text-white">
                                     {{ __('Register') }}
                                 </button>
                             </div>

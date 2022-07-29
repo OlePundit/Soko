@@ -4,9 +4,8 @@
 <div class="container">
     <div class = "row">
         <div class="col-6">
-        <img src="/storage/{{$product->image}}" class="w-1000 h-50 rounded">
+            <img src="/storage/{{$product->image}}" class="w-1000 h-50 rounded" style="max-width:200%;">
         </div>
-    
         <div class="col-4">
             <div class="d-flex align-items-center">
                 <div style="padding-right: 20px;">

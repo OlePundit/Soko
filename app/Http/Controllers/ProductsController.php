@@ -17,25 +17,25 @@ class ProductsController extends Controller
 
     public function index()
     {
-        $users = auth()->user()->products()->pluck('products.user_id');
+       $marketplaces = Product::take(6)->get();
 
-        $products = Product::whereIn('user_id', $users)->with('user')->latest()->get();
+       $wines = Product::where('category','wine')->take(6)->get();
 
-       return view('products.index', compact('products'));
-    }
-    public function index(User $user)
-    {
-        $productCount = Cache::remember(
-            'count.products.'. $user->id,
-            now()->addSeconds(30), 
-            function() use ($user){
-                return $user->products->count();
-        });
+       $whiskys = Product::where('category','whisky')->take(6)->get();
 
-        return view('shops.index', compact('user','productCount'));
+       $vodkas = Product::where('category','vodka')->take(6)->get();
+
+       $gins = Product::where('category','gin')->take(6)->get();
+
+       $beers = Product::where('category','beer')->take(6)->get();
+
+       $mixers = Product::where('category','mixers')->take(6)->get();
+
+       return view('products.index', compact('marketplaces', 'wines', 'gins','vodkas','beers', 'whiskys','mixers'));
     }
     public function create()
     {
+
         return view('products.create');
     }
 

@@ -134,15 +134,6 @@
                     </form>
 
                     <!-- Right Side Of Navbar -->
-                
-
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="/shop/{{ Auth::user()->id }}">My Shop</a>
-                    </div>
-
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="/explore">Explore</a>
-                    </div>
 
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -184,7 +175,7 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @yield('auth')
         </main>
     </div>
     <footer id="footer" class="footer bg-dark text-white">

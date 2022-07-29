@@ -40,6 +40,8 @@
                         <option value="mixers">Mixers</option>
                         <option value="bourbon">Bourbon</option>
                         <option value="cognac">Cognac</option>
+                        <option value="cognac">Cream</option>
+                        <option value="cognac">Mixers</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
@@ -66,7 +68,7 @@
                 <label for="stock status" class="col-md-4 col-form-label text-md-end">Stock status</label>
                 <div class="col-md-6">
                     <select name="stock" id="stock" class="form-select col-md-6">
-                        <option value="null">How much?</option>
+                        <option value="null">stock status</option>
                         <option value="5ltr">In stock</option>
                         <option value="1ltr">Out of stock</option>
                     </select>
@@ -75,7 +77,7 @@
 
           
 
-            <div class="row">
+            <div class="row mb-4">
                 <label for="price" class="col-md-4 col-form-label text-md-end">Price</label>
 
                 <div class="col-md-6">

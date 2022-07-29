@@ -11,12 +11,16 @@ class Shop extends Model
 
     public function shopImage()
     {
-        $imagePath = ($this->image) ? $this ->image : 'shop/286wsFlzBByiwEoqw3iD94lrCfs1yfvojUImLLfD.jpg';
+        $imagePath = ($this->image) ? $this ->image : 'shop/shop-window.svg';
         return '/storage/' . $imagePath;
     }
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function connects()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

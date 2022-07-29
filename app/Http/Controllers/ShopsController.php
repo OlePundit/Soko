@@ -6,19 +6,30 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Cache;
+use App\Models\Connect;
+
 
 class ShopsController extends Controller
 {
     public function index(User $user)
     {
+        $connects = (auth()->user()) ? auth()->user()->connecting->contains($user->id) : false;
+
         $productCount = Cache::remember(
             'count.products.'. $user->id,
             now()->addSeconds(30), 
             function() use ($user){
                 return $user->products->count();
         });
+        $connectsCount = Cache::remember(
+            'count.connects.' . $user->id,
+            now()->addSeconds(30),
+            function () use ($user) {
+                return $user->shop->connects->count();
+            });
 
-        return view('shops.index', compact('user','productCount'));
+
+        return view('shops.index', compact('user','connects','productCount','connectsCount'));
     }
 
     public function edit(User $user)

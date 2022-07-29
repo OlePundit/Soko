@@ -1,137 +1,217 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-
-<div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <strong>Soko</strong>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    
-
-                    <form class="d-flex -5" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-warning text-white" type="submit">Search</button>
-                    </form>
-
-                    <!-- Right Side Of Navbar -->
-                
-
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="/shop/{{$user->id}}">My Shop</a>
-                    </div>
-
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->shop_name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
-    <div class="row">
-@foreach ($products as $product)
-    
-                   
-            <div class="col pt-4 card mx-2 my-2 " style="width: 15rem;">
-                
-            <a href="/p/{{$product->id}}"><img src="/storage/{{$product->image}}" class="card-img-top rounded"></a>
-                    <div class="card-body">
-                        <div class="d-flex align-items-center card-title">
-                            <div style="padding-right: 20px;">
-                                <img src="{{$product->user->shop->shopImage()}}" 
-                                class="rounded-circle w-100" 
-                                style="max-width: 40px;">
-                            </div>
-                            
+<div class="card my-2">
+        <strong class="mx-3 my-1">Wine</strong>
+        <div class="row justify-content-center">
+            @foreach ($wines as $wine)          
+            <div class="col pt-2 mx-2">          
+            <a href="/p/{{$wine->id}}"><img src="/storage/{{$wine->image}}" class="card-img-top rounded" style="max-width: 100%;"></a>
+                <div class="card-body">
+                    <div class="d-flex mb-1 align-items-center">
+                        <div style="padding-right: 20px;">
+                            <img src="{{$wine->user->shop->shopImage()}}" 
+                            class="rounded-circle w-100" 
+                            style="max-width: 40px;">
+                        </div>       
+                        <div>
                             <div>
-                                <div>
-                                    <strong>
-                                        <a href="/shop/{{$product->user_id}}">
-                                            <span class="text-dark">{{ $product->user->shop_name}}
-
-                                            </span>
-                                        </a>
-                                    </strong>
-                                    
-                                </div>
+                                <strong>
+                                    <a href="/shop/{{$wine->user_id}}" class="link">
+                                        <span class="text-dark">{{$wine->user->shop_name}}</span>
+                                    </a>
+                                </strong>   
                             </div>
                         </div>
-
-                        <p class="card-text">{{$product->product_name}} <span>{{$product->volume}}</span></p>
-                        <p>{{$product->price}}<span> KSH </span></p>
-                        
-                        
                     </div>
-                
+                    <p class="font-weight-bold">{{$wine->product_name}} <span>{{$wine->volume}}</span></p>
+                    <strong>{{$wine->price}}<span> KSH </span></strong> 
+                </div> 
             </div>
-        @endforeach
-    
+            @endforeach
+        </div>
+    </div>
+    <div class="card my-2">
+        <strong class="mx-3 my-1">Vodka</strong>
+        <div class="row justify-content-center">
+            @foreach ($vodkas as $vodka)          
+            <div class="col pt-2 mx-2">          
+            <a href="/p/{{$vodka->id}}"><img src="/storage/{{$vodka->image}}" class="card-img-top rounded" style="max-width: 100%;"></a>
+                <div class="card-body">
+                    <div class="d-flex mb-1 align-items-center">
+                        <div style="padding-right: 20px;">
+                            <img src="{{$vodka->user->shop->shopImage()}}" 
+                            class="rounded-circle w-100" 
+                            style="max-width: 40px;">
+                        </div>       
+                        <div>
+                            <div>
+                                <strong>
+                                    <a href="/shop/{{$vodka->user_id}}" class="link">
+                                        <span class="text-dark">{{$vodka->user->shop_name}}</span>
+                                    </a>
+                                </strong>   
+                            </div>
+                        </div>
+                    </div>
+                    <p class="font-weight-bold">{{$vodka->product_name}} <span>{{$vodka->volume}}</span></p>
+                    <strong>{{$vodka->price}}<span> KSH </span></strong> 
+                </div> 
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="card my-2">
+        <strong class="mx-3 my-1">Whisky</strong>
+        <div class="row justify-content-center">
+            @foreach ($whiskys as $whisky)          
+            <div class="col pt-2 mx-2">          
+            <a href="/p/{{$whisky->id}}"><img src="/storage/{{$whisky->image}}" class="card-img-top rounded" style="max-width: 100%;"></a>
+                <div class="card-body">
+                    <div class="d-flex mb-1 align-items-center">
+                        <div style="padding-right: 20px;">
+                            <img src="{{$whisky->user->shop->shopImage()}}" 
+                            class="rounded-circle w-100" 
+                            style="max-width: 40px;">
+                        </div>       
+                        <div>
+                            <div>
+                                <strong>
+                                    <a href="/shop/{{$whisky->user_id}}" class="link">
+                                        <span class="text-dark">{{$whisky->user->shop_name}}</span>
+                                    </a>
+                                </strong>   
+                            </div>
+                        </div>
+                    </div>
+                    <p class="font-weight-bold">{{$whisky->product_name}} <span>{{$whisky->volume}}</span></p>
+                    <strong>{{$whisky->price}}<span> KSH </span></strong> 
+                </div> 
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="card my-2">
+        <strong class="mx-3 my-1">All Products</strong>
+        <div class="row justify-content-center">
+            @foreach ($gins as $gin)          
+            <div class="col pt-2 mx-2">          
+            <a href="/p/{{$gin->id}}"><img src="/storage/{{$gin->image}}" class="card-img-top rounded" style="max-width: 100%;"></a>
+                <div class="card-body">
+                    <div class="d-flex mb-1 align-items-center">
+                        <div style="padding-right: 20px;">
+                            <img src="{{$gin->user->shop->shopImage()}}" 
+                            class="rounded-circle w-100" 
+                            style="max-width: 40px;">
+                        </div>       
+                        <div>
+                            <div>
+                                <strong>
+                                    <a href="/shop/{{$gin->user_id}}" class="link">
+                                        <span class="text-dark">{{$gin->user->shop_name}}</span>
+                                    </a>
+                                </strong>   
+                            </div>
+                        </div>
+                    </div>
+                    <p class="font-weight-bold">{{$gin->product_name}} <span>{{$gin->volume}}</span></p>
+                    <strong>{{$gin->price}}<span> KSH </span></strong> 
+                </div> 
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="card my-2">
+        <strong class="mx-3 my-1">Mixers</strong>
+        <div class="row justify-content-center">
+            @foreach ($mixers as $mixer)          
+            <div class="col pt-2 mx-2">          
+            <a href="/p/{{$mixer->id}}"><img src="/storage/{{$mixer->image}}" class="card-img-top rounded" style="max-width: 100%;"></a>
+                <div class="card-body">
+                    <div class="d-flex mb-1 align-items-center">
+                        <div style="padding-right: 20px;">
+                            <img src="{{$mixer->user->shop->shopImage()}}" 
+                            class="rounded-circle w-100" 
+                            style="max-width: 40px;">
+                        </div>       
+                        <div>
+                            <div>
+                                <strong>
+                                    <a href="/shop/{{$mixer->user_id}}" class="link">
+                                        <span class="text-dark">{{$mixer->user->shop_name}}</span>
+                                    </a>
+                                </strong>   
+                            </div>
+                        </div>
+                    </div>
+                    <p class="font-weight-bold">{{$mixer->product_name}} <span>{{$mixer->volume}}</span></p>
+                    <strong>{{$mixer->price}}<span> KSH </span></strong> 
+                </div> 
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="card my-2">
+        <strong class="mx-3 my-1">Beer</strong>
+        <div class="row justify-content-center">
+            @foreach ($beers as $beer)          
+            <div class="col pt-2 mx-2">          
+            <a href="/p/{{$beer->id}}"><img src="/storage/{{$beer->image}}" class="card-img-top rounded" style="max-width: 100%;"></a>
+                <div class="card-body">
+                    <div class="d-flex mb-1 align-items-center">
+                        <div style="padding-right: 20px;">
+                            <img src="{{$beer->user->shop->shopImage()}}" 
+                            class="rounded-circle w-100" 
+                            style="max-width: 40px;">
+                        </div>       
+                        <div>
+                            <div>
+                                <strong>
+                                    <a href="/shop/{{$beer->user_id}}" class="link">
+                                        <span class="text-dark">{{$beer->user->shop_name}}</span>
+                                    </a>
+                                </strong>   
+                            </div>
+                        </div>
+                    </div>
+                    <p class="font-weight-bold">{{$beer->product_name}} <span>{{$beer->volume}}</span></p>
+                    <strong>{{$beer->price}}<span> KSH </span></strong> 
+                </div> 
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="card my-2">
+        <strong class="mx-3 my-1">All Products</strong>
+        <div class="row justify-content-center">
+            @foreach ($marketplaces as $marketplace)          
+            <div class="col pt-2 mx-2">          
+            <a href="/p/{{$marketplace->id}}"><img src="/storage/{{$marketplace->image}}" class="card-img-top rounded" style="max-width: 100%;"></a>
+                <div class="card-body">
+                    <div class="d-flex mb-1 align-items-center">
+                        <div style="padding-right: 20px;">
+                            <img src="{{$marketplace->user->shop->shopImage()}}" 
+                            class="rounded-circle w-100" 
+                            style="max-width: 40px;">
+                        </div>       
+                        <div>
+                            <div>
+                                <strong>
+                                    <a href="/shop/{{$marketplace->user_id}}" class="link">
+                                        <span class="text-dark">{{$marketplace->user->shop_name}}</span>
+                                    </a>
+                                </strong>   
+                            </div>
+                        </div>
+                    </div>
+                    <p class="font-weight-bold">{{$marketplace->product_name}} <span>{{$marketplace->volume}}</span></p>
+                    <strong>{{$marketplace->price}}<span> KSH </strong></p> 
+                </div> 
+            </div>
+            @endforeach
+        </div>
     </div>
 </div>
-
-
 @endsection

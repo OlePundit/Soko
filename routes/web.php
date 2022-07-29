@@ -17,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-/**Route::post('connect/{user}', [App\Http\Controllers\ConnectsController::class, 'store']);**/
+Route::post('connect/{user}', [App\Http\Controllers\ConnectsController::class, 'store']);
 
 Route::get('/', [App\Http\Controllers\ProductsController::class, 'index']);
+
+Route::get('/explore', [App\Http\Controllers\ConnectsController::class, 'index']);
 
 Route::get('/p/create', [App\Http\Controllers\ProductsController::class, 'create']);
 
@@ -32,3 +34,6 @@ Route::get('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'index'
 Route::get('/shop/{user}/edit', [App\Http\Controllers\ShopsController::class, 'edit'])->name('shops.edit');
 
 Route::patch('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'update'])->name('shops.update');
+
+
+

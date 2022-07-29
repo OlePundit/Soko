@@ -60,8 +60,8 @@ class User extends Authenticatable
         return $this->hasOne(Shop::class);
     }
 
-    public function connect()
+    public function connecting()
     {
-        return $this->hasMany(Connect::class);
+        return $this->belongsToMany(Shop::class);
     }
 }

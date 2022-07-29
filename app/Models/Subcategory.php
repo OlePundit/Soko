@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Connect extends Model
+class Subcategory extends Model
 {
-    public function user()
+    public function subcategories()
     {
-        return $this->belongsTo(User::class);
+    return $this->belongsTo(Category::class);
     }
+    
 }
