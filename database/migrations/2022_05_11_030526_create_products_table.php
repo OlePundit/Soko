@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('category');
+            $table->string('subcategory');
             $table->string('product_name');
             $table->string('volume');
             $table->string('stock');

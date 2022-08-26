@@ -23,45 +23,8 @@
                 </div>
             </div>
 
-            <div class="row mb-4">
-                <label for="category" class="col-md-4 col-form-label text-md-end">Category</label>
-                <div class="col-md-6">
-                    <select name="category" id="category" class="form-select col-md-6">
-                        <option value="null">Select category</option>
-                        <option value="wine">Wine</option>
-                        <option value="whisky">Whisky</option>
-                        <option value="brandy">Brandy</option>
-                        <option value="scotch">Scotch</option>
-                        <option value="spirit">Spirit</option>
-                        <option value="gin">Gin</option>
-                        <option value="vodka">Vodka</option>
-                        <option value="beer">Beer</option>
-                        <option value="rum">Rum</option>
-                        <option value="mixers">Mixers</option>
-                        <option value="bourbon">Bourbon</option>
-                        <option value="cognac">Cognac</option>
-                        <option value="cognac">Cream</option>
-                        <option value="cognac">Mixers</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-            </div>      
-            
-            
-            <div class="row mb-4">
-                <label for="volume" class="col-md-4 col-form-label text-md-end">Volume</label>
-                <div class="col-md-6">
-                    <select name="volume" id="volume" class="form-select col-md-6">
-                        <option value="null">Choose volume</option>
-                        <option value="5ltr">5ltr</option>
-                        <option value="1ltr">1ltr</option>
-                        <option value="750ml">750ml</option>
-                        <option value="500ml">500ml</option>
-                        <option value="250ml">250ml</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-            </div>    
+            <create-product></create-product>    
+             
 
 
             <div class="row mb-4">

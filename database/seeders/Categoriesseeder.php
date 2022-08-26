@@ -22,7 +22,25 @@ class Categoriesseeder extends Seeder
                 'category' => 'DIY',
             ],
             [
-                'category' => 'food',
+                'category' => 'food & grocery',
+            ],
+            [
+                'category' => 'electronics',
+            ],
+            [
+                'category' => 'vehicles',
+            ],
+            [
+                'category' => 'home & office',
+            ],
+            [
+                'category' => 'clothing',
+            ],
+            [
+                'category' => 'services',
+            ],
+            [
+                'category' => 'other',
             ],
         ];
         Category::insert($categories);

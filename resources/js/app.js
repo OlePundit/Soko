@@ -21,6 +21,8 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('connect-button', require('./components/ConnectButton.vue').default);
+Vue.component('create-product', require('./components/CreateProduct.vue').default);
+Vue.component('liquor-category', require('./components/LiquorCategory.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
