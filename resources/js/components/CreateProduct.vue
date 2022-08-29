@@ -11,10 +11,10 @@
             </div>
         </div>   
 
-        <div class="row mb-4">
+        <div class="row mb-4" @click="toggleLaptops">
             <label for="subcategory" class="col-md-4 col-form-label text-md-end">Subcategory</label>
             <div class="col-md-6">
-                <select name="subcategory_id" id="subcategories" class="form-select col-md-6">
+                <select name="subcategory_id" id="subcategories" class="form-select col-md-6" required v-model="selectedSubcategory">
                     <option value="">Select subcategory</option>
                     <option v-for="subcategory in subcategories" :key="subcategory.id" :value="subcategory.id">{{ subcategory.subcategory }}</option>
                 </select>
@@ -27,6 +27,47 @@
     :selectedCategory="selectedCategory"
     >
     </liquor-category> 
+    <laptops-subcategory
+    v-if="showLaptopsSubcategory"
+    :toggle="toggleLaptops"
+    :selectedCategory="selectedCategory"
+    :selectedSubcategory="selectedSubcategory"
+    >
+    </laptops-subcategory> 
+    <phones-subcategory
+    v-if="showPhonesSubcategory"
+    :toggle="toggleLaptops"
+    :selectedCategory="selectedCategory"
+    :selectedSubcategory="selectedSubcategory"
+    >
+    </phones-subcategory> 
+    <salvage-subcategory
+    v-if="showSalvageSubcategory"
+    :toggle="toggleLaptops"
+    :selectedCategory="selectedCategory"
+    :selectedSubcategory="selectedSubcategory"
+    >
+    </salvage-subcategory> 
+    <services-category
+    v-if="showServicesCategory"
+    :toggle="toggleLiquor"
+    :selectedCategory="selectedCategory"
+    >
+    </services-category> 
+    <tv-subcategory
+    v-if="showTvSubcategory"
+    :toggle="toggleLaptops"
+    :selectedCategory="selectedCategory"
+    :selectedSubcategory="selectedSubcategory"
+    >
+    </tv-subcategory> 
+    <audio-subcategory
+    v-if="showAudioSubcategory"
+    :toggle="toggleLaptops"
+    :selectedCategory="selectedCategory"
+    :selectedSubcategory="selectedSubcategory"
+    >
+    </audio-subcategory> 
 </div>
    
 </template>
@@ -42,7 +83,15 @@ import LiquorCategory from '../components/LiquorCategory.vue'
                 categories : {},
                 subcategories : {},
                 selectedCategory : '',
-                showLiquorCategory : false
+                selectedSubcategory : '',
+                showLiquorCategory : false,
+                showLaptopsSubcategory : false,
+                showPhonesSubcategory : false,
+                showSalvageSubcategory : false,
+                showServicesCategory : false,
+                showTvSubcategory : false,
+                showAudioSubcategory : false
+
             }
         },
         watch : {
@@ -57,6 +106,20 @@ import LiquorCategory from '../components/LiquorCategory.vue'
             toggleLiquor() {
                 if (this.selectedCategory === 1) 
                 this.showLiquorCategory = !this.showLiquorCategory
+                else if (this.selectedCategory === 8)
+                this.showServicesCategory = !this.showServicesCategory
+            },
+            toggleLaptops() {
+                if (this.selectedSubcategory === 16)
+                this.showLaptopsSubcategory = !this.showLaptopsSubcategory
+                else if (this.selectedSubcategory === 18)
+                this.showPhonesSubcategory = !this.showPhonesSubcategory
+                else if (this.selectedSubcategory === 28)
+                this.showSalvageSubcategory = !this.showSalvageSubcategory
+                else if (this.selectedSubcategory === 19)
+                this.showAudioSubcategory = !this.showAudioSubcategory
+                else if (this.selectedSubcategory === 20)
+                this.showTvSubcategory = !this.showTvSubcategory
             }
         },
 

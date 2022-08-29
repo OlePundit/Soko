@@ -28,12 +28,12 @@
 
 
             <div class="row mb-4">
-                <label for="stock status" class="col-md-4 col-form-label text-md-end">Stock status</label>
+                <label for="ad_status" class="col-md-4 col-form-label text-md-end">Ad Status</label>
                 <div class="col-md-6">
-                    <select name="stock" id="stock" class="form-select col-md-6">
-                        <option value="null">stock status</option>
-                        <option value="5ltr">In stock</option>
-                        <option value="1ltr">Out of stock</option>
+                    <select name="ad_status" id="ad_status" class="form-select col-md-6">
+                        <option value="null">Ad status</option>
+                        <option value="5ltr">available</option>
+                        <option value="1ltr">unavailable</option>
                     </select>
                 </div>
             </div>    
@@ -57,15 +57,14 @@
 
 
             <div class="row mb-4">
-                <label for="description" class="col-md-4 col-form-label text-md-end">Description</label> 
+                <label for="description" class="col-md-4 col-form-label text-md-end" >Description</label> 
 
                 <div class="col-md-6">
             
                 <input type="text" class="form-control" id="description" name="description">
+                <div>Describe your product or service</div>
 
                 </div>
-                
-
             </div>
 
             <div class="row">
@@ -73,13 +72,15 @@
 
                 <div class="col-md-6">
             
-                <input type="file" class="form-control-file" id="image" name="image">
-                            
-            @error('image')
-            
-            <strong>{{ $message }}</strong>
+                    <input type="file" class="form-control-file" id="image" name="image">
+                    <div>If its a service, then upload an image that best describes the service you are offering</div>
+                   
+                @error('image')
                 
-            @enderror
+                <strong>{{ $message }}</strong>
+                    
+                @enderror
+                </div>
             </div>
 
                     

@@ -34,14 +34,25 @@ class Categoriesseeder extends Seeder
                 'category' => 'home & office',
             ],
             [
-                'category' => 'clothing',
+                'category' => 'clothing & jewellery',
             ],
             [
                 'category' => 'services',
             ],
             [
+                'category' => 'property',
+            ],
+            [
+                'category' => 'Commercial equipment',
+            ],
+            [
+                'category' => 'animals & pets',
+            ],
+            [
                 'category' => 'other',
             ],
+            
+
         ];
         Category::insert($categories);
     }

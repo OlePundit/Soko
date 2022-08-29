@@ -80,6 +80,10 @@ class Subcategoriesseeder extends Seeder
                 'categories_id' => '4',
             ], 
             [
+                'subcategory' => 'video games and gaming consoles',
+                'categories_id' => '4',
+            ],
+            [
                 'subcategory' => 'accessories',
                 'categories_id' => '4',
             ], 
@@ -88,7 +92,7 @@ class Subcategoriesseeder extends Seeder
                 'categories_id' => '4',
             ], 
             [
-                'subcategory' => 'audio',
+                'subcategory' => 'audio & music equipment',
                 'categories_id' => '4',
             ], 
             [
@@ -124,8 +128,49 @@ class Subcategoriesseeder extends Seeder
                 'categories_id' => '5',
             ],
             [
-                'subcategory' => 'secondhand cars',
+                'subcategory' => 'motor vehicles',
                 'categories_id' => '5',
+            ],
+
+            [
+                'subcategory' => 'salvage',
+                'categories_id' => '5',
+            ],
+            [
+                'subcategory' => 'menswear',
+                'categories_id' => '7',
+            ],
+            [
+                'subcategory' => 'womenswear',
+                'categories_id' => '7',
+            ],
+            [
+                'subcategory' => 'childrenswear',
+                'categories_id' => '7',
+            ],
+            [
+                'subcategory' => 'unisex',
+                'categories_id' => '7',
+            ],
+            [
+                'subcategory' => 'sportswear',
+                'categories_id' => '7',
+            ],
+            [
+                'subcategory' => 'shoes',
+                'categories_id' => '7',
+            ],
+            [
+                'subcategory' => 'accessories',
+                'categories_id' => '7',
+            ],
+            [
+                'subcategory' => 'bags',
+                'categories_id' => '7',
+            ],
+            [
+                'subcategory' => 'jewellery',
+                'categories_id' => '7',
             ],
             
             [
@@ -160,9 +205,22 @@ class Subcategoriesseeder extends Seeder
                 'subcategory' => 'writing',
                 'categories_id' => '8',
             ],
+        
             [
-                'subcategory' => 'handy man (mtu wa mkono)',
+                'subcategory' => 'repair and mechanical services',
                 'categories_id' => '8',
+            ],
+            [
+                'subcategory' => 'land',
+                'categories_id' => '9',
+            ],
+            [
+                'subcategory' => 'buildings',
+                'categories_id' => '9',
+            ],
+            [
+                'subcategory' => 'other',
+                'categories_id' => '9',
             ],
         ];
 
