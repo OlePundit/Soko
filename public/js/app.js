@@ -5416,7 +5416,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['toggle', 'selectedCategory', 'selectedSubcategory']
+  props: ['toggle', 'selectedCategory', 'selectedSubcategory'],
+  data: function data() {
+    return {
+      audioData: {
+        type: '',
+        brand: '',
+        condition: ''
+      }
+    };
+  },
+  methods: {
+    emitData: function emitData() {
+      this.$emit('childToParent', this.audioData);
+    }
+  }
 });
 
 /***/ }),
@@ -5486,6 +5500,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       categories: {},
       subcategories: {},
+      product_name: '',
+      price: '',
+      description: '',
       selectedCategory: '',
       selectedSubcategory: '',
       showLiquorCategory: false,
@@ -5494,7 +5511,16 @@ __webpack_require__.r(__webpack_exports__);
       showSalvageSubcategory: false,
       showServicesCategory: false,
       showTvSubcategory: false,
-      showAudioSubcategory: false
+      showAudioSubcategory: false,
+      showSubcategories: true,
+      audioData: {},
+      laptopData: {},
+      liquorData: {},
+      phoneData: {},
+      salvageData: {},
+      servicesData: {},
+      tvData: {},
+      ad_status: ''
     };
   },
   watch: {
@@ -5508,17 +5534,47 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     toggleLiquor: function toggleLiquor() {
-      if (this.selectedCategory === 1) this.showLiquorCategory = !this.showLiquorCategory;else if (this.selectedCategory === 8) this.showServicesCategory = !this.showServicesCategory;
+      if (this.selectedCategory === 1) this.showLiquorCategory = !this.showLiquorCategory;else if (this.selectedCategory === 8) this.showServicesCategory = !this.showServicesCategory;else if (this.selectedCategory > 9) this.showSubcategories = !this.showSubcategories;
     },
     toggleLaptops: function toggleLaptops() {
-      if (this.selectedSubcategory === 16) this.showLaptopsSubcategory = !this.showLaptopsSubcategory;else if (this.selectedSubcategory === 18) this.showPhonesSubcategory = !this.showPhonesSubcategory;else if (this.selectedSubcategory === 28) this.showSalvageSubcategory = !this.showSalvageSubcategory;else if (this.selectedSubcategory === 19) this.showAudioSubcategory = !this.showAudioSubcategory;else if (this.selectedSubcategory === 20) this.showTvSubcategory = !this.showTvSubcategory;
+      if (this.selectedSubcategory === 18) this.showLaptopsSubcategory = !this.showLaptopsSubcategory;else if (this.selectedSubcategory === 21) this.showPhonesSubcategory = !this.showPhonesSubcategory;else if (this.selectedSubcategory === 31 || this.selectedSubcategory === 32) this.showSalvageSubcategory = !this.showSalvageSubcategory;else if (this.selectedSubcategory === 22) this.showAudioSubcategory = !this.showAudioSubcategory;else if (this.selectedSubcategory === 23) this.showTvSubcategory = !this.showTvSubcategory;
+    },
+    toggleDescription: function toggleDescription() {
+      if (this.selectedCategory === 8) this.showDescriptionInp = !this.showDescriptionInp;
+    },
+    onAudioClick: function onAudioClick(value) {
+      this.audioData = value;
+    },
+    onLaptopClick: function onLaptopClick(value) {
+      this.laptopData = value;
+    },
+    onLiquorClick: function onLiquorClick(value) {
+      this.liquorData = value;
+    },
+    onPhoneClick: function onPhoneClick(value) {
+      this.phoneData = value;
+    },
+    onSalvageClick: function onSalvageClick(value) {
+      this.salvageData = value;
+    },
+    onTvClick: function onTvClick(value) {
+      this.tvData = value;
+    },
+    authentication: function authentication() {
+      var _this2 = this;
+
+      axios.get('/sanctum/csrf-cookie').then(function (response) {
+        axios.post('/p', _this2.product_name, _this2.price, _this2.description, _this2.selectedCategory, _this2.selectedSubcategory, _this2.audioData, _this2.laptopData, _this2.liquorData, _this2.phoneData, _this2.SalvageData, _this2.servicesData, _this2.tvData, _this2.ad_status).then(function (response) {
+          console.log(response);
+        });
+      });
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     axios.get('/api/categories').then(function (response) {
-      _this2.categories = response.data.data;
+      _this3.categories = response.data.data;
     });
   }
 });
@@ -5556,7 +5612,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['toggle', 'selectedCategory', 'selectedSubcategory']
+  props: ['toggle', 'selectedCategory', 'selectedSubcategory'],
+  data: function data() {
+    return {
+      laptopData: {
+        type: '',
+        brand: '',
+        processor: '',
+        operatingSystem: '',
+        storageType: '',
+        storageCapacity: '',
+        memory: '',
+        display: '',
+        condition: ''
+      }
+    };
+  },
+  methods: {
+    emitdata: function emitdata() {
+      this.$emit('childToParent', this.laptopData);
+    }
+  }
 });
 
 /***/ }),
@@ -5573,7 +5649,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['toggle', 'selectedCategory']
+  props: ['toggle', 'selectedCategory'],
+  data: function data() {
+    return {
+      liquorData: {
+        volume: ''
+      }
+    };
+  },
+  methods: {
+    emitData: function emitData() {
+      console.log('emiting');
+      this.$emit('childToParent', this.liquorData);
+    }
+  }
 });
 
 /***/ }),
@@ -5590,7 +5679,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['toggle', 'selectedCategory', 'selectedSubcategory']
+  props: ['toggle', 'selectedCategory', 'selectedSubcategory'],
+  data: function data() {
+    return {
+      phoneData: {
+        type: '',
+        brand: '',
+        storageCapacity: '',
+        memory: '',
+        display: '',
+        condition: ''
+      }
+    };
+  },
+  methods: {
+    emitData: function emitData() {
+      this.$emit('childToParent', this.phoneData);
+    }
+  }
 });
 
 /***/ }),
@@ -5607,7 +5713,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['toggle', 'selectedCategory', 'selectedSubcategory']
+  props: ['toggle', 'selectedCategory', 'selectedSubcategory'],
+  data: function data() {
+    return {
+      salvageData: {
+        type: '',
+        brand: '',
+        transmission: '',
+        consumption: '',
+        numberplate: '',
+        yom: '',
+        condition: ''
+      }
+    };
+  },
+  methods: {
+    emitData: function emitData() {
+      this.$emit('childToParent', this.salvageData);
+    }
+  }
 });
 
 /***/ }),
@@ -5624,7 +5748,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['toggle', 'selectedCategory']
+  props: ['toggle', 'selectedCategory'],
+  data: function data() {
+    return {
+      servicesData: {
+        attachments: {},
+        description: '',
+        image: null
+      }
+    };
+  },
+  methods: {
+    onFileChange: function onFileChange(e) {
+      this.image = e.target.files[0];
+    },
+    emitData: function emitData() {
+      this.$emit('childToParent', this.image);
+    }
+  }
 });
 
 /***/ }),
@@ -5641,7 +5782,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['toggle', 'selectedCategory', 'selectedSubcategory']
+  props: ['toggle', 'selectedCategory', 'selectedSubcategory'],
+  data: function data() {
+    return {
+      tvData: {
+        type: '',
+        brand: '',
+        condition: ''
+      }
+    };
+  },
+  methods: {
+    storeTv: function storeTv() {
+      axios.post('/p', {
+        type: this.type,
+        brand: this.brand,
+        condition: this.condition
+      }).then(function (response) {
+        console.log(response.data);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -5662,13 +5823,6 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", [_c("div", {
     staticClass: "row mb-4"
   }, [_c("label", {
@@ -5679,10 +5833,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Type")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.audioData.type,
+      expression: "audioData.type"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "type",
       id: "type"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.audioData, "type", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -5726,10 +5900,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Brand")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.audioData.brand,
+      expression: "audioData.brand"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "brand",
       id: "brand"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.audioData, "brand", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -5769,10 +5963,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Condition")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.audioData.condition,
+      expression: "audioData.condition"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "condition",
       id: "condition"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.audioData, "condition", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -5787,7 +6001,9 @@ var staticRenderFns = [function () {
       value: "refurbished"
     }
   }, [_vm._v("refurbished")])])])])]);
-}];
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5845,10 +6061,63 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("div", [_c("div", {
+  return _c("div", [_c("div", {
+    staticClass: "containter"
+  }, [_c("form", {
+    attrs: {
+      action: "/p",
+      enctype: "multipart/form-data",
+      method: "post"
+    },
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.authentication.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-8 offset-2"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "row mb-4"
+  }, [_c("label", {
+    staticClass: "col-md-4 col-form-label text-md-end",
+    attrs: {
+      "for": "product_name"
+    }
+  }, [_vm._v("Product Name")]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.product_name,
+      expression: "product_name"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      id: "product_name",
+      type: "text",
+      name: "product_name"
+    },
+    domProps: {
+      value: _vm.product_name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.product_name = $event.target.value;
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "row mb-4",
     on: {
-      click: _vm.toggleLiquor
+      click: _vm.toggleLiquor,
+      submit: function submit($event) {
+        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "prebent", undefined, $event.key, undefined)) return null;
+        return _vm.storeProduct();
+      }
     }
   }, [_c("label", {
     staticClass: "col-md-4 col-form-label text-md-end",
@@ -5856,7 +6125,10 @@ var render = function render() {
       "for": "category"
     }
   }, [_vm._v("Category")]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6"
+    staticClass: "col-md-6",
+    on: {
+      click: _vm.toggleDescription
+    }
   }, [_c("select", {
     directives: [{
       name: "model",
@@ -5892,7 +6164,7 @@ var render = function render() {
         value: item.id
       }
     }, [_vm._v(_vm._s(item.category))]);
-  })], 2)])]), _vm._v(" "), _c("div", {
+  })], 2)])]), _vm._v(" "), _vm.showSubcategories ? _c("div", {
     staticClass: "row mb-4",
     on: {
       click: _vm.toggleLaptops
@@ -5939,50 +6211,193 @@ var render = function render() {
         value: subcategory.id
       }
     }, [_vm._v(_vm._s(subcategory.subcategory))]);
-  })], 2)])])]), _vm._v(" "), _vm.showLiquorCategory ? _c("liquor-category", {
+  })], 2)])]) : _vm._e(), _vm._v(" "), _vm.showLiquorCategory ? _c("liquor-category", {
     attrs: {
       toggle: _vm.toggleLiquor,
       selectedCategory: _vm.selectedCategory
+    },
+    on: {
+      childToParent: _vm.onLiquorClick
     }
   }) : _vm._e(), _vm._v(" "), _vm.showLaptopsSubcategory ? _c("laptops-subcategory", {
     attrs: {
       toggle: _vm.toggleLaptops,
       selectedCategory: _vm.selectedCategory,
       selectedSubcategory: _vm.selectedSubcategory
+    },
+    on: {
+      childToParent: _vm.onLaptopClick
     }
   }) : _vm._e(), _vm._v(" "), _vm.showPhonesSubcategory ? _c("phones-subcategory", {
     attrs: {
       toggle: _vm.toggleLaptops,
       selectedCategory: _vm.selectedCategory,
       selectedSubcategory: _vm.selectedSubcategory
+    },
+    on: {
+      childToParent: _vm.onPhoneClick
     }
   }) : _vm._e(), _vm._v(" "), _vm.showSalvageSubcategory ? _c("salvage-subcategory", {
     attrs: {
       toggle: _vm.toggleLaptops,
       selectedCategory: _vm.selectedCategory,
       selectedSubcategory: _vm.selectedSubcategory
+    },
+    on: {
+      childToParent: _vm.onSalvageClick
     }
   }) : _vm._e(), _vm._v(" "), _vm.showServicesCategory ? _c("services-category", {
     attrs: {
       toggle: _vm.toggleLiquor,
       selectedCategory: _vm.selectedCategory
+    },
+    on: {
+      childToParent: _vm.onServicesClick
     }
   }) : _vm._e(), _vm._v(" "), _vm.showTvSubcategory ? _c("tv-subcategory", {
     attrs: {
       toggle: _vm.toggleLaptops,
       selectedCategory: _vm.selectedCategory,
       selectedSubcategory: _vm.selectedSubcategory
+    },
+    on: {
+      childToParent: _vm.onTvClick
     }
   }) : _vm._e(), _vm._v(" "), _vm.showAudioSubcategory ? _c("audio-subcategory", {
     attrs: {
       toggle: _vm.toggleLaptops,
       selectedCategory: _vm.selectedCategory,
       selectedSubcategory: _vm.selectedSubcategory
+    },
+    on: {
+      childToParent: _vm.onAudioClick
     }
-  }) : _vm._e()], 1);
+  }) : _vm._e(), _vm._v(" "), _c("div", {
+    staticClass: "row mb-4"
+  }, [_c("label", {
+    staticClass: "col-md-4 col-form-label text-md-end",
+    attrs: {
+      "for": "ad_status"
+    }
+  }, [_vm._v("Ad Status")]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.ad_status,
+      expression: "ad_status"
+    }],
+    staticClass: "form-select col-md-6",
+    attrs: {
+      name: "ad_status",
+      id: "ad_status"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.ad_status = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: "null"
+    }
+  }, [_vm._v("Ad status")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "5ltr"
+    }
+  }, [_vm._v("available")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "1ltr"
+    }
+  }, [_vm._v("unavailable")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-4"
+  }, [_c("label", {
+    staticClass: "col-md-4 col-form-label text-md-end",
+    attrs: {
+      "for": "description"
+    }
+  }, [_vm._v("Description")]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.description,
+      expression: "description"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      id: "description",
+      name: "description"
+    },
+    domProps: {
+      value: _vm.description
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.description = $event.target.value;
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-4"
+  }, [_c("label", {
+    staticClass: "col-md-4 col-form-label text-md-end",
+    attrs: {
+      "for": "price"
+    }
+  }, [_vm._v("Price")]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.price,
+      expression: "price"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      id: "price",
+      type: "text",
+      name: "price"
+    },
+    domProps: {
+      value: _vm.price
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.price = $event.target.value;
+      }
+    }
+  })])]), _vm._v(" "), _vm._m(1)], 1)])])])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row text-center"
+  }, [_c("h2", [_vm._v("Create new product")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row pt-4"
+  }, [_c("button", {
+    staticClass: "btn btn-warning text-white"
+  }, [_vm._v("Add New Product")])]);
+}];
 render._withStripped = true;
 
 
@@ -6046,13 +6461,6 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", [_c("div", {
     staticClass: "row mb-4"
   }, [_c("label", {
@@ -6063,10 +6471,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Type")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.laptopData.type,
+      expression: "laptopData.type"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "type",
       id: "type"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.laptopData, "type", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitdata();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6094,10 +6522,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Brand")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.laptopData.brand,
+      expression: "laptopData.brand"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "brand",
       id: "brand"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.laptopData, "brand", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitdata();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6157,10 +6605,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Processor")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.laptopData.processor,
+      expression: "laptopData.processor"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "processor",
       id: "processor"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.laptopData, "processor", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitdata();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6236,10 +6704,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Operating System")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.laptopData.operatingSystem,
+      expression: "laptopData.operatingSystem"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "0peratingSystem",
       id: "operatingSystem"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.laptopData, "operatingSystem", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitdata();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6283,10 +6771,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Storoge Type")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.laptopData.storageType,
+      expression: "laptopData.storageType"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "storageType",
       id: "storageType"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.laptopData, "storageType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitdata();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6310,10 +6818,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Storoge Capacity")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.laptopData.storageCapacity,
+      expression: "laptopData.storageCapacity"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "storageCapacity",
       id: "storageCapacity"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.laptopData, "storageCapacity", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitdata();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6341,10 +6869,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Memory (RAM)")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.laptopData.memory,
+      expression: "laptopData.memory"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "memory",
       id: "memory"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.laptopData, "memory", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitdata();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6380,10 +6928,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Display")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.laptopData.display,
+      expression: "laptopData.display"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "display",
       id: "display"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.laptopData, "display", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitdata();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6415,10 +6983,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Condition")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.laptopData.condition,
+      expression: "laptopData.condition"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "condition",
       id: "condition"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.laptopData, "condition", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitdata();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6433,7 +7021,9 @@ var staticRenderFns = [function () {
       value: "refurbished"
     }
   }, [_vm._v("refurbished")])])])])]);
-}];
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -6455,13 +7045,6 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", [_c("div", {
     staticClass: "row mb-4"
   }, [_c("label", {
@@ -6472,10 +7055,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Volume")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.liquorData.volume,
+      expression: "liquorData.volume"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "volume",
       id: "volume"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.liquorData, "volume", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6506,7 +7109,9 @@ var staticRenderFns = [function () {
       value: "other"
     }
   }, [_vm._v("Other")])])])])]);
-}];
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -6528,15 +7133,14 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", [_c("div", {
-    staticClass: "row mb-4"
+    staticClass: "row mb-4",
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.storePhones();
+      }
+    }
   }, [_c("label", {
     staticClass: "col-md-4 col-form-label text-md-end",
     attrs: {
@@ -6545,10 +7149,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Type")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.phoneData.type,
+      expression: "phoneData.type"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "type",
       id: "type"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.phoneData, "type", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6568,10 +7192,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Brand")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.phoneData.brand,
+      expression: "phoneData.brand"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "brand",
       id: "brand"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.phoneData, "brand", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6630,141 +7274,35 @@ var staticRenderFns = [function () {
   }, [_c("label", {
     staticClass: "col-md-4 col-form-label text-md-end",
     attrs: {
-      "for": "processor"
-    }
-  }, [_vm._v("Processor")]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6"
-  }, [_c("select", {
-    staticClass: "form-select col-md-6",
-    attrs: {
-      name: "processor",
-      id: "processor"
-    }
-  }, [_c("option", {
-    attrs: {
-      value: "null"
-    }
-  }, [_vm._v("Processor")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "intelpentium"
-    }
-  }, [_vm._v("Intel Pentium")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "Intelceleron"
-    }
-  }, [_vm._v("intel Celeron")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "core2"
-    }
-  }, [_vm._v("Core 2 Duo")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "corei3"
-    }
-  }, [_vm._v("Core i3")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "corei5"
-    }
-  }, [_vm._v("Core i5")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "corei7"
-    }
-  }, [_vm._v("Core i7")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "corei9"
-    }
-  }, [_vm._v("Core i9")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "applem2"
-    }
-  }, [_vm._v("Apple M2")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "applem1"
-    }
-  }, [_vm._v("Apple M1")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "amdryzen"
-    }
-  }, [_vm._v("AMD Ryzen")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "amda8"
-    }
-  }, [_vm._v("AMD A8")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "amda6"
-    }
-  }, [_vm._v("AMD A6")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "amda10"
-    }
-  }, [_vm._v("AMD A10")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "amda4"
-    }
-  }, [_vm._v("AMD A4")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "other"
-    }
-  }, [_vm._v("Other")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "row mb-4"
-  }, [_c("label", {
-    staticClass: "col-md-4 col-form-label text-md-end",
-    attrs: {
-      "for": "operatingSystem"
-    }
-  }, [_vm._v("Operating System")]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6"
-  }, [_c("select", {
-    staticClass: "form-select col-md-6",
-    attrs: {
-      name: "0peratingSystem",
-      id: "operatingSystem"
-    }
-  }, [_c("option", {
-    attrs: {
-      value: "macos"
-    }
-  }, [_vm._v("Mac Os")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "linux"
-    }
-  }, [_vm._v("Linux")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "windowsvista"
-    }
-  }, [_vm._v("Windows Vista")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "windowsxp"
-    }
-  }, [_vm._v("Windows XP")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "windows7"
-    }
-  }, [_vm._v("Windows 7")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "windows8"
-    }
-  }, [_vm._v("Windows 8")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "windows10"
-    }
-  }, [_vm._v("Windows 10")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "other"
-    }
-  }, [_vm._v("Other")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "row mb-4"
-  }, [_c("label", {
-    staticClass: "col-md-4 col-form-label text-md-end",
-    attrs: {
       "for": "storageCapacity"
     }
   }, [_vm._v("Storoge Capacity")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.phoneData.storageCapacity,
+      expression: "phoneData.storageCapacity"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "storageCapacity",
       id: "storageCapacity"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.phoneData, "storageCapacity", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6804,10 +7342,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Memory (RAM)")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.phoneData.memory,
+      expression: "phoneData.memory"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "memory",
       id: "memory"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.phoneData, "memory", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6835,8 +7393,46 @@ var staticRenderFns = [function () {
     staticClass: "col-md-4 col-form-label text-md-end",
     attrs: {
       "for": "display"
+    },
+    on: {
+      change: function change($event) {
+        return _vm.emitData();
+      }
+    },
+    model: {
+      value: _vm.phoneData.display,
+      callback: function callback($$v) {
+        _vm.$set(_vm.phoneData, "display", $$v);
+      },
+      expression: "phoneData.display"
     }
-  }, [_vm._v("Display")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Display")]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-4"
+  }, [_c("label", {
+    staticClass: "col-md-4 col-form-label text-md-end",
+    attrs: {
+      "for": "condition"
+    },
+    on: {
+      change: function change($event) {
+        return _vm.emitData();
+      }
+    },
+    model: {
+      value: _vm.phoneData.condition,
+      callback: function callback($$v) {
+        _vm.$set(_vm.phoneData, "condition", $$v);
+      },
+      expression: "phoneData.condition"
+    }
+  }, [_vm._v("Condition")]), _vm._v(" "), _vm._m(1)])]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
     staticClass: "form-select col-md-6",
@@ -6860,14 +7456,12 @@ var staticRenderFns = [function () {
     attrs: {
       value: "lessthat4inches"
     }
-  }, [_vm._v('less that 4"')])])])]), _vm._v(" "), _c("div", {
-    staticClass: "row mb-4"
-  }, [_c("label", {
-    staticClass: "col-md-4 col-form-label text-md-end",
-    attrs: {
-      "for": "condition"
-    }
-  }, [_vm._v("Condition")]), _vm._v(" "), _c("div", {
+  }, [_vm._v('less that 4"')])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
     staticClass: "form-select col-md-6",
@@ -6887,7 +7481,7 @@ var staticRenderFns = [function () {
     attrs: {
       value: "refurbished"
     }
-  }, [_vm._v("refurbished")])])])])]);
+  }, [_vm._v("refurbished")])])]);
 }];
 render._withStripped = true;
 
@@ -6910,13 +7504,6 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", [_c("div", {
     staticClass: "row mb-4"
   }, [_c("label", {
@@ -6927,10 +7514,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Type")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.salvageData.type,
+      expression: "salvageData.type"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "type",
       id: "type"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.salvageData, "type", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -6962,10 +7569,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Brand")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.salvageData.brand,
+      expression: "salvageData.brand"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "brand",
       id: "brand"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.salvageData, "brand", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -7033,10 +7660,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Transmission")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.salvageData.transmission,
+      expression: "salvageData.transmission"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "transmission",
       id: "transmission"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.salvageData, "transmission", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -7064,10 +7711,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Consumption (cc)")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.salvageData.consumption,
+      expression: "salvageData.consumption"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "consumption",
       id: "consumption"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.salvageData, "consumption", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -7099,11 +7766,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Number Plate")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.salvageData.numberplate,
+      expression: "salvageData.numberplate"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text",
       id: "numberplate",
       name: "numberplate"
+    },
+    domProps: {
+      value: _vm.salvageData.numberplate
+    },
+    on: {
+      change: function change($event) {
+        return _vm.emitData();
+      },
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.salvageData, "numberplate", $event.target.value);
+      }
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "row mb-4"
@@ -7115,11 +7801,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Year of Manufacture")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.salvageData.yom,
+      expression: "salvageData.yom"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "date",
       id: "yom",
       name: "yom"
+    },
+    domProps: {
+      value: _vm.salvageData.yom
+    },
+    on: {
+      change: function change($event) {
+        return _vm.emitData();
+      },
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.salvageData, "yom", $event.target.value);
+      }
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "row mb-4"
@@ -7131,10 +7836,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Condition")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.salvageData.condition,
+      expression: "salvageData.condition"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "condition",
       id: "condition"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.salvageData, "condition", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -7153,7 +7878,9 @@ var staticRenderFns = [function () {
       value: "salvage"
     }
   }, [_vm._v("salvage")])])])])]);
-}];
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -7175,19 +7902,18 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", [_c("div", {
-    staticClass: "row"
+    staticClass: "row",
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.storeServices();
+      }
+    }
   }, [_c("label", {
     staticClass: "col-md-4 col-form-label text-md-end",
     attrs: {
-      "for": "image"
+      "for": "attachments"
     }
   }, [_vm._v("Upload portfolio, CV or resume")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
@@ -7195,11 +7921,71 @@ var staticRenderFns = [function () {
     staticClass: "form-control-file",
     attrs: {
       type: "file",
+      id: "attachments",
+      name: "attachments"
+    },
+    on: {
+      change: _vm.onFileChange
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-4"
+  }, [_c("label", {
+    staticClass: "col-md-4 col-form-label text-md-end",
+    attrs: {
+      "for": "description"
+    }
+  }, [_vm._v("Description")]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.servicesData.description,
+      expression: "servicesData.description"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      id: "description",
+      name: "description",
+      placeholder: "I  will..."
+    },
+    domProps: {
+      value: _vm.servicesData.description
+    },
+    on: {
+      change: function change($event) {
+        return _vm.emitData();
+      },
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.servicesData, "description", $event.target.value);
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("label", {
+    staticClass: "col-md-4 col-form-label text-md-end",
+    attrs: {
+      "for": "image"
+    }
+  }, [_vm._v("Product Image")]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("input", {
+    staticClass: "form-control-file",
+    attrs: {
+      type: "file",
       id: "image",
       name: "image"
+    },
+    on: {
+      change: _vm.onFileChange
     }
-  })])])]);
-}];
+  }), _vm._v(" "), _c("div", [_vm._v("Upload an image that best describes the service you are offering")])])])]);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -7221,15 +8007,14 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", [_c("div", {
-    staticClass: "row mb-4"
+    staticClass: "row mb-4",
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.storeTv();
+      }
+    }
   }, [_c("label", {
     staticClass: "col-md-4 col-form-label text-md-end",
     attrs: {
@@ -7238,10 +8023,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Type")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.tvData.type,
+      expression: "tvData.type"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "type",
       id: "type"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.tvData, "type", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -7261,10 +8066,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Brand")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.tvData.brand,
+      expression: "tvData.brand"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "brand",
       id: "brand"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.tvData, "brand", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -7324,10 +8149,30 @@ var staticRenderFns = [function () {
   }, [_vm._v("Condition")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.tvData.condition,
+      expression: "tvData.condition"
+    }],
     staticClass: "form-select col-md-6",
     attrs: {
       name: "condition",
       id: "condition"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.tvData, "condition", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.emitData();
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -7342,7 +8187,9 @@ var staticRenderFns = [function () {
       value: "refurbished"
     }
   }, [_vm._v("refurbished")])])])])]);
-}];
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -7400,6 +8247,9 @@ var app = new Vue({
   \***********************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
+
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 try {
@@ -7414,6 +8264,7 @@ try {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.withCredentials = true;
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

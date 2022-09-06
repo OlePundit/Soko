@@ -3,7 +3,7 @@
     <div class="row mb-4">
         <label for="type" class="col-md-4 col-form-label text-md-end">Type</label>
         <div class="col-md-6">
-            <select name="type" id="type" class="form-select col-md-6">
+            <select name="type" id="type" class="form-select col-md-6" v-model="salvageData.type" v-on:change="emitData()">
                 <option value="motorcycle">Motorcycle</option>
                 <option value="motorcycle">Lorry</option>
                 <option value="pickup">Pickup</option>
@@ -15,7 +15,7 @@
     <div class="row mb-4">
         <label for="brand" class="col-md-4 col-form-label text-md-end">Brand</label>
         <div class="col-md-6">
-            <select name="brand" id="brand" class="form-select col-md-6">
+            <select name="brand" id="brand" class="form-select col-md-6" v-model="salvageData.brand" v-on:change="emitData()">
                 <option value="toyota">Toyota</option>
                 <option value="subaru">Subaru</option>
                 <option value="mazda">Mazda</option>
@@ -36,7 +36,7 @@
     <div class="row mb-4">
         <label for="transmission" class="col-md-4 col-form-label text-md-end">Transmission</label>
         <div class="col-md-6">
-            <select name="transmission" id="transmission" class="form-select col-md-6">
+            <select name="transmission" id="transmission" class="form-select col-md-6" v-model="salvageData.transmission" v-on:change="emitData()">
                 <option value="null">Transmission</option>
                 <option value="automatic">Automatic</option>
                 <option value="manual">Manual</option>
@@ -47,7 +47,7 @@
     <div class="row mb-4">
         <label for="consumption" class="col-md-4 col-form-label text-md-end">Consumption (cc)</label>
         <div class="col-md-6">
-            <select name="consumption" id="consumption" class="form-select col-md-6">
+            <select name="consumption" id="consumption" class="form-select col-md-6" v-model="salvageData.consumption" v-on:change="emitData()">
                 <option value="macos">Less than a 1000</option>
                 <option value="1000_1500">1000 - 1500</option>
                 <option value="1500_2000">1500 - 2000</option>
@@ -61,7 +61,7 @@
 
         <div class="col-md-6">
     
-        <input type="text" class="form-control" id="numberplate" name="numberplate">
+            <input type="text" class="form-control" id="numberplate" name="numberplate" v-model="salvageData.numberplate" v-on:change="emitData()">
 
         </div>
         
@@ -72,7 +72,7 @@
 
         <div class="col-md-6">
     
-        <input type="date" class="form-control" id="yom" name="yom">
+        <input type="date" class="form-control" id="yom" name="yom" v-model="salvageData.yom" v-on:change="emitData()">
 
         </div>
         
@@ -81,18 +81,38 @@
     <div class="row mb-4">
         <label for="condition" class="col-md-4 col-form-label text-md-end">Condition</label>
         <div class="col-md-6">
-            <select name="condition" id="condition" class="form-select col-md-6">
+            <select name="condition" id="condition" class="form-select col-md-6" v-model="salvageData.condition" v-on:change="emitData()">
                 <option value="new">new</option>
                 <option value="foreignused">foreign used</option>
                 <option value="locallyused">locally used</option>
                 <option value="salvage">salvage</option>
             </select>
         </div>
-    </div>   
+    </div>    
+                
 </div>
 </template>
 <script>
     export default {
-        props: ['toggle','selectedCategory','selectedSubcategory']
+        props: ['toggle','selectedCategory','selectedSubcategory'],
+        data () {
+            return {
+                salvageData: {
+                    type : '',
+                    brand : '',
+                    transmission : '',
+                    consumption : '',
+                    numberplate : '',
+                    yom : '',
+                    condition : ''
+                }
+
+            }
+        },
+        methods: {
+            emitData() {
+                this.$emit('childToParent', this.salvageData)
+            }
+        }
     }
 </script>

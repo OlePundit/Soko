@@ -3,7 +3,7 @@
     <div class="row mb-4">
         <label for="type" class="col-md-4 col-form-label text-md-end">Type</label>
         <div class="col-md-6">
-            <select name="type" id="type" class="form-select col-md-6">
+            <select name="type" id="type" class="form-select col-md-6" v-model="audioData.type" v-on:change="emitData()">
                 <option value="digital">Speakers</option>
                 <option value="hometheatres">Home theatres</option>
                 <option value="microphones">Microphones</option>
@@ -18,7 +18,7 @@
     <div class="row mb-4">
         <label for="brand" class="col-md-4 col-form-label text-md-end">Brand</label>
         <div class="col-md-6">
-            <select name="brand" id="brand" class="form-select col-md-6">
+            <select name="brand" id="brand" class="form-select col-md-6" v-model="audioData.brand" v-on:change="emitData()">
                 <option value="sony">Sony</option>
                 <option value="ampex">Ampex</option>
                 <option value="pioneer">Pioneer</option>
@@ -32,7 +32,7 @@
     <div class="row mb-4">
         <label for="condition" class="col-md-4 col-form-label text-md-end">Condition</label>
         <div class="col-md-6">
-            <select name="condition" id="condition" class="form-select col-md-6">
+            <select name="condition" id="condition" class="form-select col-md-6" v-model="audioData.condition" v-on:change="emitData()">
                 <option value="new">new</option>
                 <option value="used">used</option>
                 <option value="refurbished">refurbished</option>
@@ -43,6 +43,20 @@
 </template>
 <script>
     export default {
-        props: ['toggle','selectedCategory','selectedSubcategory']
+        props: ['toggle','selectedCategory','selectedSubcategory'],
+        data () {
+            return{
+               audioData: {
+                    type : '',
+                    brand : '',
+                    condition : ''
+               }
+            }
+        },
+        methods: {
+            emitData() {
+                this.$emit('childToParent', this.audioData)
+            }
+        }
     }
 </script>

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('category');
-            $table->string('subcategory');
+            $table->string('subcategory')->nullable();
             $table->string('product_name');
             $table->string('volume');
             $table->string('type');
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('numberplate');
             $table->string('yom');
             $table->string('processor');
-            $table->string('operatingSystem');
+            $table->string('operatingSystem')->nullable();
             $table->string('storageType');
             $table->string('storageCapacity');
             $table->string('memory');
@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('condition');
             $table->string('ad_status');
             $table->integer('price');
+            $table->string('attachments');
             $table->text('description')->nullable();
             $table->string('image');
             

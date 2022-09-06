@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Intervention\Image\Facades\Image;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Subcategory;
 
 
 class ProductsController extends Controller
@@ -42,13 +44,28 @@ class ProductsController extends Controller
     public function store()
     {
         $data = request()->validate([
-        'product_name' => 'required',
-        'category' => 'required',
-        'volume' => 'required',
-        'stock' => 'required', 
-        'price' => ['required', 'integer'],
+        'product_name' => '',
+        'selectedCategory' => '',
+        'selectedSubcategory' => '',
+        'volume' => '',
+        'type'=> '',
+        'brand' => '',
+        'transmission' => '',
+        'consumption' => '',
+        'numberplate'=> '',
+        'yom' => '',
+        'processor' => '',
+        'operatingSystem' => '',
+        'storageType' => '',
+        'storageCapacity'=> '',
+        'memory' => '',
+        'display' => '',
+        'ad_status' => '', 
+        'condition'=> '',
+        'price' => '',
+        'attachments' => '',
         'description' => '',
-        'image' => ['required', 'image'],
+        'image' => '',
         ]);
 
         $imagePath = request('image')->store('uploads', 'public');
@@ -58,12 +75,30 @@ class ProductsController extends Controller
 
         auth()->user()->products()->create([
             'product_name' => $data['product_name'],
+            'selectedCategory' => $data['selectedCategory'],
+            'selectedSubcategory' => $data['selectedSubcategory'],
             'category' => $data['category'],
+            'subcategory' => $data['subcategory'],
             'volume' => $data['volume'],
-            'stock' => $data['stock'], 
+            'type'=> $data['type'],
+            'brand' => $data['brand'],
+            'transmission' => $data['transmission'],
+            'consumption' => $data['consumption'],
+            'numberplate'=> $data['numberplate'],
+            'yom' => $data['yom'],
+            'processor' => $data['processor'],
+            'operatingSystem' => 'operatingSystem',
+            'storageType' => $data['storageType'],
+            'storageCapacity'=> $data['storageCapacity'],
+            'memory' => $data['memory'],
+            'display' => $data['display'],
+            'ad_status' => $data['ad_status'], 
+            'condition'=> $data['condition'],
             'price' => $data['price'],
+            'attachments' => $data['attachments'],
             'description' => $data['description'],
             'image' => $imagePath,
+            'liquorData' => $data['liquorData']
         ]);
 
         return redirect('/shop/' . auth()->user()->id);

@@ -19,7 +19,7 @@ class Categoriesseeder extends Seeder
                 'category' => 'liquor',
             ],
             [
-                'category' => 'DIY',
+                'category' => 'property',
             ],
             [
                 'category' => 'food & grocery',
@@ -39,11 +39,12 @@ class Categoriesseeder extends Seeder
             [
                 'category' => 'services',
             ],
-            [
-                'category' => 'property',
-            ],
+            
             [
                 'category' => 'Commercial equipment',
+            ],
+            [
+                'category' => 'DIY',
             ],
             [
                 'category' => 'animals & pets',

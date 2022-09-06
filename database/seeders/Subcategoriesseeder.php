@@ -76,6 +76,14 @@ class Subcategoriesseeder extends Seeder
                 'categories_id' => '1',
             ], 
             [
+                'subcategory' => 'food',
+                'categories_id' => '3',
+            ],
+            [
+                'subcategory' => 'grocery',
+                'categories_id' => '3',
+            ],
+            [
                 'subcategory' => 'laptops and computers',
                 'categories_id' => '4',
             ], 
@@ -221,6 +229,26 @@ class Subcategoriesseeder extends Seeder
             [
                 'subcategory' => 'other',
                 'categories_id' => '9',
+            ],
+            [
+                'subcategory' => 'Industrial equipment',
+                'categories_id' => '2',
+            ],
+            [
+                'subcategory' => 'hardware',
+                'categories_id' => '2',
+            ],
+            [
+                'subcategory' => 'store equipment',
+                'categories_id' => '2',
+            ],
+            [
+                'subcategory' => 'farming tools',
+                'categories_id' => '2',
+            ],
+            [
+                'subcategory' => 'other',
+                'categories_id' => '2',
             ],
         ];
 
