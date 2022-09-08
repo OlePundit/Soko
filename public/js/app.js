@@ -5502,6 +5502,7 @@ __webpack_require__.r(__webpack_exports__);
       subcategories: {},
       product_name: '',
       price: '',
+      image: null,
       description: '',
       selectedCategory: '',
       selectedSubcategory: '',
@@ -5559,6 +5560,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     onTvClick: function onTvClick(value) {
       this.tvData = value;
+    },
+    onFileSelected: function onFileSelected(e) {
+      this.image = e.target.files[0];
+    },
+    upload: function upload() {
+      var formData = new FormData();
+      formData.set('image', this.image);
+      axios.post('/p', formData);
     },
     authentication: function authentication() {
       var _this2 = this;
@@ -6352,6 +6361,25 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "col-md-4 col-form-label text-md-end",
     attrs: {
+      "for": "image"
+    }
+  }, [_vm._v("Product Image")]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("input", {
+    staticClass: "form-control-file",
+    attrs: {
+      type: "file",
+      id: "image",
+      name: "image"
+    },
+    on: {
+      change: _vm.onFileSelected
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-4"
+  }, [_c("label", {
+    staticClass: "col-md-4 col-form-label text-md-end",
+    attrs: {
       "for": "price"
     }
   }, [_vm._v("Price")]), _vm._v(" "), _c("div", {
@@ -6378,7 +6406,16 @@ var render = function render() {
         _vm.price = $event.target.value;
       }
     }
-  })])]), _vm._v(" "), _vm._m(1)], 1)])])])]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row pt-4"
+  }, [_c("button", {
+    staticClass: "btn btn-warning text-white",
+    on: {
+      click: function click($event) {
+        return _vm.upload();
+      }
+    }
+  }, [_vm._v("Add New Product")])])], 1)])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -6388,15 +6425,6 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "row text-center"
   }, [_c("h2", [_vm._v("Create new product")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "row pt-4"
-  }, [_c("button", {
-    staticClass: "btn btn-warning text-white"
-  }, [_vm._v("Add New Product")])]);
 }];
 render._withStripped = true;
 

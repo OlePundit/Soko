@@ -108,6 +108,15 @@
 
                         </div>
                     </div>
+                    <div class="row mb-4">
+                        <label for="image" class="col-md-4 col-form-label text-md-end">Product Image</label> 
+
+                        <div class="col-md-6">
+
+                            <input type="file" class="form-control-file" id="image" name="image" @change="onFileSelected">
+                            
+                        </div>
+                    </div>
 
                     <div class="row mb-4">
                         <label for="price" class="col-md-4 col-form-label text-md-end">Price</label>
@@ -120,7 +129,7 @@
 
 
                     <div class="row pt-4">
-                        <button class="btn btn-warning text-white">Add New Product</button>
+                        <button class="btn btn-warning text-white" @click="upload()">Add New Product</button>
                     </div>
                 </div>
             </div>
@@ -142,6 +151,7 @@ import LiquorCategory from '../components/LiquorCategory.vue'
                 subcategories : {},
                 product_name : '',
                 price : '',
+                image : null,
                 description : '',
                 selectedCategory : '',
                 selectedSubcategory : '',
@@ -214,6 +224,14 @@ import LiquorCategory from '../components/LiquorCategory.vue'
             },
             onTvClick (value) {
                 this.tvData = value
+            },
+            onFileSelected(e) {
+                this.image = e.target.files[0]
+            },
+            upload() {
+                const formData = new FormData
+                formData.set('image', this.image)
+                axios.post('/p', formData)
             },
             authentication() {
                 axios.get('/sanctum/csrf-cookie').then(response => {
