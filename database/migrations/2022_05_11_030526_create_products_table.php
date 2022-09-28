@@ -37,7 +37,7 @@ return new class extends Migration
             $table->integer('price');
             $table->string('attachments');
             $table->text('description')->nullable();
-            $table->string('formData');
+            $table->string('image');
             
             $table->timestamps();
         });

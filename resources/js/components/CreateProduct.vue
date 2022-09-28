@@ -228,11 +228,6 @@ import LiquorCategory from '../components/LiquorCategory.vue'
             onFileSelected(e) {
                 this.image = e.target.files[0]
             },
-            upload() {
-                const formData = new FormData
-                formData.set('image', this.image)
-                axios.post('/p', formData)
-            },
             authentication() {
                 axios.get('/sanctum/csrf-cookie').then(response => {
                     axios.post('/p', this.product_name, this.price,

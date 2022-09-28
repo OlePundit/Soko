@@ -5564,11 +5564,6 @@ __webpack_require__.r(__webpack_exports__);
     onFileSelected: function onFileSelected(e) {
       this.image = e.target.files[0];
     },
-    upload: function upload() {
-      var formData = new FormData();
-      formData.set('image', this.image);
-      axios.post('/p', formData);
-    },
     authentication: function authentication() {
       var _this2 = this;
 

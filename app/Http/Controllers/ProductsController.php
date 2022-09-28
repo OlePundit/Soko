@@ -65,13 +65,13 @@ class ProductsController extends Controller
         'price' => '',
         'attachments' => '',
         'description' => '',
-        'formData' => '',
+        'image' => '',
         ]);
 
-        $imagePath = request('formData')->store('uploads', 'public');
+        #$imagePath = request()->file('image')->store('uploads', 'public');
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        $image->save();
+        #$image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        #$image->save();
 
         auth()->user()->products()->create([
             'product_name' => $data['product_name'],
@@ -97,7 +97,7 @@ class ProductsController extends Controller
             'price' => $data['price'],
             'attachments' => $data['attachments'],
             'description' => $data['description'],
-            'formData' => $imagePath,
+            #'image' => $imagePath,
             'liquorData' => $data['liquorData']
         ]);
 
