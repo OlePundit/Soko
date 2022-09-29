@@ -29,14 +29,14 @@ class ShopsController extends Controller
             });
 
 
-        return view('shops.index', compact('user','connects','productCount','connectsCount'));
+        return view('Shops.index', compact('user','connects','productCount','connectsCount'));
     }
 
     public function edit(User $user)
     {
        $this->authorize('update',$user->shop);
 
-        return view('shops.edit', compact('user'));
+        return view('Shops.edit', compact('user'));
     }
 
     public function update(User $user)
