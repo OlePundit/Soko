@@ -33,12 +33,12 @@ class ProductsController extends Controller
 
        $mixers = Product::where('category','mixers')->take(6)->get();
 
-       return view('products.index', compact('marketplaces', 'wines', 'gins','vodkas','beers', 'whiskys','mixers'));
+       return view('Products.index', compact('marketplaces', 'wines', 'gins','vodkas','beers', 'whiskys','mixers'));
     }
     public function create()
     {
 
-        return view('products.create');
+        return view('Products.create');
     }
     
     #hacktoberfest
@@ -110,7 +110,7 @@ class ProductsController extends Controller
 
     public function show(\App\Models\Product $product)
     {
-        return view('products.show', compact('product'));
+        return view('Products.show', compact('product'));
     }
 
 }
