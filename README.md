@@ -1,4 +1,4 @@
-
+<h1>Soko</h1>
 <p>
 Soko is an app that attempts to make the ability to connect to an online audience, especially as a small business owner open source. With that said, our app provide small scale retailers with the added facet of creating an online shop, adding their product catalogue, and advertising to a wider online audience. No matter the industry they are in. Our aim is to eliminate brick and motor costs by providing sellers with the ability to sell from anywhere, anytime, and to connect buyers to retailers around them, ulimately raising consumer satisfaction, by enhancing service delivery through solving issues such as last mile delivery and customer experience.
 </p>
