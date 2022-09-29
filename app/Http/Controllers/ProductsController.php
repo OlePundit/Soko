@@ -40,7 +40,8 @@ class ProductsController extends Controller
 
         return view('products.create');
     }
-
+    
+    #hacktoberfest
     public function store()
     {
         $data = request()->validate([
@@ -68,10 +69,10 @@ class ProductsController extends Controller
         'image' => '',
         ]);
 
-        #$imagePath = request()->file('image')->store('uploads', 'public');
+        $imagePath = request()->file('image')->store('uploads', 'public');
 
-        #$image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        #$image->save();
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
 
         auth()->user()->products()->create([
             'product_name' => $data['product_name'],
