@@ -40,7 +40,7 @@ class ProductsController extends Controller
 
         return view('Products.create');
     }
-    
+
     #hacktoberfest
     public function store()
     {
@@ -61,7 +61,7 @@ class ProductsController extends Controller
         'storageCapacity'=> '',
         'memory' => '',
         'display' => '',
-        'ad_status' => '', 
+        'ad_status' => '',
         'condition'=> '',
         'price' => '',
         'attachments' => '',
@@ -69,10 +69,23 @@ class ProductsController extends Controller
         'image' => '',
         ]);
 
-        $imagePath = request()->file('image')->store('uploads', 'public');
+        // Image
+        $image = request()->file('image');
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        $image->save();
+        // Image name
+        $img_name = time() . '.' . $image->getClientOriginalExtension();
+
+        // Upload folder
+        $upload_path = public_path('uploads/images');
+
+        // Make sure upload folder exists
+        if (!file_exists($upload_path)) {
+            mkdir($upload_path, 666, true);
+        }
+
+        // Modify the image and save
+        $img = Image::make($image->getRealPath())->fit(1200, 1200);
+        $img->save($upload_path . '/' . $img_name);
 
         auth()->user()->products()->create([
             'product_name' => $data['product_name'],
@@ -93,7 +106,7 @@ class ProductsController extends Controller
             'storageCapacity'=> $data['storageCapacity'],
             'memory' => $data['memory'],
             'display' => $data['display'],
-            'ad_status' => $data['ad_status'], 
+            'ad_status' => $data['ad_status'],
             'condition'=> $data['condition'],
             'price' => $data['price'],
             'attachments' => $data['attachments'],
@@ -105,7 +118,7 @@ class ProductsController extends Controller
         return redirect('/shop/' . auth()->user()->id);
 
 
-      
+
     }
 
     public function show(\App\Models\Product $product)
