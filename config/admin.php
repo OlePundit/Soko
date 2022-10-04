@@ -174,6 +174,9 @@ return [
 
         // Database connection for following tables.
         'connection' => 'mysql',
+        'database' => 'soko1',
+        'username'=>'glenn',
+        'password'=>'Glennisgood14$',
 
         // User tables and model.
         'users_table' => 'admin_users',
