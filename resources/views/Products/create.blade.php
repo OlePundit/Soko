@@ -65,12 +65,12 @@
 
 
             <div class="row mb-4">
-                <label for="stock status" class="col-md-4 col-form-label text-md-end">Stock status</label>
+                <label for="stock" class="col-md-4 col-form-label text-md-end">Stock status</label>
                 <div class="col-md-6">
                     <select name="stock" id="stock" class="form-select col-md-6">
                         <option value="null">stock status</option>
-                        <option value="5ltr">In stock</option>
-                        <option value="1ltr">Out of stock</option>
+                        <option value="available">In stock</option>
+                        <option value="unavailable">Out of stock</option>
                     </select>
                 </div>
             </div>    
