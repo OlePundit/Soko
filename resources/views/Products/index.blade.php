@@ -92,37 +92,6 @@
             @endforeach
         </div>
     </div>
-
-    <div class="card my-2">
-        <strong class="mx-3 my-1">Mixers</strong>
-        <div class="row justify-content-center">
-            @foreach ($mixers as $mixer)          
-            <div class="col pt-2 mx-2">          
-            <a href="/p/{{$mixer->id}}"><img src="/storage/{{$mixer->image}}" class="card-img-top rounded" style="max-width: 100%;"></a>
-                <div class="card-body">
-                    <div class="d-flex mb-1 align-items-center">
-                        <div style="padding-right: 20px;">
-                            <img src="{{$mixer->user->shop->shopImage()}}" 
-                            class="rounded-circle w-100" 
-                            style="max-width: 40px;">
-                        </div>       
-                        <div>
-                            <div>
-                                <strong>
-                                    <a href="/shop/{{$mixer->user_id}}" class="link">
-                                        <span class="text-dark">{{$mixer->user->shop_name}}</span>
-                                    </a>
-                                </strong>   
-                            </div>
-                        </div>
-                    </div>
-                    <p class="font-weight-bold">{{$mixer->product_name}} <span>{{$mixer->volume}}</span></p>
-                    <strong>{{$mixer->price}}<span> KSH </span></strong> 
-                </div> 
-            </div>
-            @endforeach
-        </div>
-    </div>
     <div class="card my-2">
         <strong class="mx-3 my-1">Beer</strong>
         <div class="row justify-content-center">
