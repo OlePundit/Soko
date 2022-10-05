@@ -23,7 +23,6 @@
                     .then(response=> {
                         this.status = ! this.status;
 
-                        alert(response.data);
                 })
                 .catch(errors =>{
                     if(errors.response.status == 401){
