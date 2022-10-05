@@ -117,7 +117,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand mt-2" href="#">
+                <a class="navbar-brand mt-2" href="/">
                   <img src="/storage/uploads/soko.png" alt="" width="100" height="72" class="d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -201,8 +201,8 @@
           <div class="col-6 col-lg-2 col-md-4 col-xs-4">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="index.html" class="link"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="guestpost" class="link"><i class="bi bi-chevron-right"></i> Create Shop</a></li>
+              <li><a href="/" class="link"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="/register" class="link"><i class="bi bi-chevron-right"></i> Create Shop</a></li>
               <li><a href="about" class="link"><i class="bi bi-chevron-right"></i> Blog</a></li>
               <li><a href="contact" class="link"><i class="bi bi-chevron-right"></i> Contact us</a></li>
             </ul>
