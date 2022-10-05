@@ -10,7 +10,7 @@ Our aim is to eliminate brick and mortar costs by providing sellers with the abi
 Here is a test version of the application: (https://sellorbuyke.com)
 </p>
 
-<h3> 📌 Tech Stack</h3>
+<h3> Tech Stack</h3>
 
 ![HTML](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white)
@@ -20,14 +20,70 @@ Here is a test version of the application: (https://sellorbuyke.com)
 <img alt="Bootstrap" src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white"/>
 
 <h3>Configuration and Installation</h3>
- Fork the repository 
+
+1. Fork the repository 
     
- Clone the forked repository using:
+2. Clone the forked repository using:
+ 
  
 ```shell
 git clone https://github.com/OlePundit/Soko.git
 ```
-   
+            
+3. Install composer
+
+```
+Composer Install
+```
+            
+  
+4. Composer will install all the dependencies
+5. Edit the env file to ensure that Database connection is set to sqlite
+
+```
+DB_CONNECTION=sqlite
+```
+
+6. If you are a pc user, install vim from (https://vim.org), and set up the local database using:
+
+```
+vim database/database.sqlite
+```
+            
+7. Finally run 
+
+```
+php artisan migrate 
+```
+            
+To set up the migrations.
+
+8. You might also want to run
+  
+```
+php artisan storage:link 
+```
+            
+To set up a symbolic link between public storage and local storage.
+ 
+9. For Windows users:
+<br>
+Go to php folder in xampp and open the php.ini and php configurations settings file, and change the line ;extension=gd2 or the line ;extension=gd to just      extension=gd2
+
+NB that php version 8 is stored as ;extension=gd
+  
+Linux/ Mac users:
+
+```
+sudo apt-get install php8.1-gd
+```
+
+Depending on the php installation
+ 
+ 
+ 
+
+        
 
 
 
