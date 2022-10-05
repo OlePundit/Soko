@@ -195,7 +195,7 @@
         <div class="row justify-content-center g-5">
           <div class="col-lg-4 col-md-4 col-xs-4">
             <h3 class="footer-heading">About SellorBuyKe<h3>
-            <div class="fs-5">Soko is an online market where buyers and sellers... </div>
+            <div class="fs-5">SellorBuyKe is an online market where buyers and sellers... </div>
             <p><a href="about" class="footer-link-more">Learn More</a></p>
           </div>
           <div class="col-6 col-lg-2 col-md-4 col-xs-4">
