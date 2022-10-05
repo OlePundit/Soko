@@ -16,6 +16,8 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    
+
     /**
      * Show the application dashboard.
      *
@@ -23,6 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('shops.edit');
+        return view('Shops.edit');
     }
 }
