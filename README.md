@@ -19,7 +19,16 @@ Here is a test version of the application: (https://sellorbuyke.com)
 ![VUE](https://img.shields.io/badge/vue.js%20-%232e5447.svg?&style=for-the-badge&logo=vue.js&logoColor=%234FC08DF)
 <img alt="Bootstrap" src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white"/>
 
-<h3>Contributing Guidlines</h3>
+<h3>Configuration and Installation</h3>
+ Fork the repository 
+    
+ Clone the forked repository using:
+ 
+```shell
+git clone https://github.com/OlePundit/Soko.git
+```
+   
+
 
 
 
