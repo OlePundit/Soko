@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Soko</title>
+    <title>SellorBuyKe</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -194,7 +194,7 @@
 
         <div class="row justify-content-center g-5">
           <div class="col-lg-4 col-md-4 col-xs-4">
-            <h3 class="footer-heading">About Soko<h3>
+            <h3 class="footer-heading">About SellorBuyKe<h3>
             <div class="fs-5">Soko is an online market where buyers and sellers... </div>
             <p><a href="about" class="footer-link-more">Learn More</a></p>
           </div>
