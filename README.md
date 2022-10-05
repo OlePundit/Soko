@@ -80,7 +80,13 @@ sudo apt-get install php8.1-gd
 
 Depending on the php installation
  
- 
+The app should now be ready to go!⚡
+
+<h3>Lead Maintainer</h3>
+<a href="https://twitter.com/OlePundit">
+    <img alt="twitter" src="https://img.shields.io/badge/twitter-%23563D7C.svg?style=for-the-badge&logo=twitter&logoColor=white"/>
+</a>
+
  
 
         
