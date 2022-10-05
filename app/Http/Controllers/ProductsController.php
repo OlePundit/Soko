@@ -10,11 +10,6 @@ use App\Models\User;
 
 class ProductsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
        $marketplaces = Product::take(6)->get();
@@ -31,6 +26,7 @@ class ProductsController extends Controller
 
        return view('Products.index', compact('marketplaces', 'wines', 'gins','beers', 'whiskys','mixers'));
     }
+    
     public function create()
     {
 

@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/', [App\Http\Controllers\ProductsController::class, 'index']);
 
 Auth::routes();
 
 Route::post('connect/{user}', [App\Http\Controllers\ConnectsController::class, 'store']);
-
-Route::get('/', [App\Http\Controllers\ProductsController::class, 'index']);
 
 Route::get('/explore', [App\Http\Controllers\ConnectsController::class, 'index']);
 

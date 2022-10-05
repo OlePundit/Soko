@@ -121,7 +121,7 @@
 
                     
         <div class="row pt-4">
-            <button class="btn btn-warning text-white">Add New Post</button>
+            <button class="btn btn-primary text-white">Add New Post</button>
         </div>
 
 

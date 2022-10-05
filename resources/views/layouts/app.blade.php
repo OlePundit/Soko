@@ -135,7 +135,7 @@
 
                     <!-- Right Side Of Navbar -->
                 
-
+                  @if (Auth::user())
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="/shop/{{ Auth::user()->id }}">My Shop</a>
                     </div>
@@ -143,6 +143,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="/explore">Explore</a>
                     </div>
+                  @endif  
 
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
