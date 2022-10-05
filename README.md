@@ -84,7 +84,15 @@ The app should now be ready to go!⚡
 
 <h3>Lead Maintainer</h3>
 <a href="https://twitter.com/OlePundit">
-    <img alt="twitter" src="https://img.shields.io/badge/twitter-%23563D7C.svg?style=for-the-badge&logo=twitter&logoColor=white"/>
+    <img alt="twitter" src="https://img.shields.io/badge/twitter-%2300acee .svg?style=for-the-badge&logo=twitter&logoColor=white"/>
+</a>
+
+<a href="https://twitter.com/OlePundit">
+    <img alt="github" src="https://img.shields.io/badge/github-%23323330.svg?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+<a href="https://twitter.com/OlePundit">
+    <img alt="linkedin" src="https://img.shields.io/badge/linkedin-%230072b1 .svg?style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
 
  
