@@ -11,7 +11,7 @@ class Shop extends Model
 
     public function shopImage()
     {
-        $imagePath = ($this->image) ? $this ->image : 'shop/shop-window.svg';
+        $imagePath = ($this->image) ? $this ->image : '/storage/shop/profile.jpg';
         return '/storage/' . $imagePath;
     }
 
