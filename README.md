@@ -1,6 +1,6 @@
 <h1>SellorBuyKe</h1>
 <h2>
-SellorBuyKe is an open-source ecommerce and social media app built using laravel for the backend and Vue.js, HTML, CSS and Bootstrap.
+SellorBuyKe is an open-source ecommerce and social media app built using Laravel, Vue.js, HTML, CSS and Bootstrap.
 </h2>
 <p>
 SellorbuyKe is an app that attempts to open source the ability to connect to an online audience, primarily to small business owners. Small scale retailers from different lines of business can create an online shop, upload their products, and advertise to a wider online audience, for free. 
@@ -9,6 +9,11 @@ Our aim is to eliminate brick and mortar costs by providing sellers with the abi
     
 Here is a test version of the application: (https://sellorbuyke.com)
 </p>
+<h3>Requirements</h3>
+
+- PHP 7.3+
+- Laravel 5.5+
+- NPM
 
 <h3> Tech Stack</h3>
 
@@ -83,6 +88,10 @@ Depending on the php installation
 The app should now be ready to go!⚡
 
 <h3>Lead Maintainer</h3>
+<table>
+  <tbody><tr>
+     <td align="center"><a href="https://github.com/OlePundit"><img alt="" src="https://avatars.githubusercontent.com/u/104025672?s=400&v=4" width="125px;"><br><sub><b> OlePundit </b></sub></a><br></td> </a></td>
+</tbody></table>
 <a href="https://twitter.com/OlePundit">
     <img alt="twitter" src="https://img.shields.io/badge/twitter-%2300acee .svg?style=for-the-badge&logo=twitter&logoColor=white"/>
 </a>
@@ -91,7 +100,7 @@ The app should now be ready to go!⚡
     <img alt="github" src="https://img.shields.io/badge/github-%23323330.svg?style=for-the-badge&logo=github&logoColor=white"/>
 </a>
 
-<a href="https://twitter.com/OlePundit">
+<a href="https://twitter.com/OlePundit](https://www.linkedin.com/in/glenn-omondi-390393140/">
     <img alt="linkedin" src="https://img.shields.io/badge/linkedin-%230072b1 .svg?style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
 
