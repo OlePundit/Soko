@@ -1,13 +1,13 @@
 <template>
 <div>
     <div class="containter">
-        <form action = "/p" enctype="multipart/form-data" method="post" @submit.prevent="authentication">
+        <form action = "/p" enctype="multipart/form-data" method="post" @submit.prevent="upload">
             <div class="row">
                 <div class="col-8 offset-2">
                     <div class="row text-center">
                         <h2>Create new product</h2>
                     </div>
-                    
+
                     <div class="row mb-4">
                         <label for="product_name" class="col-md-4 col-form-label text-md-end">Product Name</label>
 
@@ -24,7 +24,7 @@
                                 <option v-for="item in categories" :key="item.id" :value="item.id">{{item.category}}</option>
                             </select>
                         </div>
-                    </div>   
+                    </div>
 
                     <div class="row mb-4" @click="toggleLaptops" v-if="showSubcategories">
                         <label for="subcategory" class="col-md-4 col-form-label text-md-end">Subcategory</label>
@@ -41,7 +41,7 @@
                     :selectedCategory="selectedCategory"
                     v-on:childToParent="onLiquorClick"
                     >
-                    </liquor-category> 
+                    </liquor-category>
                     <laptops-subcategory
                     v-if="showLaptopsSubcategory"
                     :toggle="toggleLaptops"
@@ -49,7 +49,7 @@
                     :selectedSubcategory="selectedSubcategory"
                     v-on:childToParent="onLaptopClick"
                     >
-                    </laptops-subcategory> 
+                    </laptops-subcategory>
                     <phones-subcategory
                     v-if="showPhonesSubcategory"
                     :toggle="toggleLaptops"
@@ -57,7 +57,7 @@
                     :selectedSubcategory="selectedSubcategory"
                     v-on:childToParent="onPhoneClick"
                     >
-                    </phones-subcategory> 
+                    </phones-subcategory>
                     <salvage-subcategory
                     v-if="showSalvageSubcategory"
                     :toggle="toggleLaptops"
@@ -65,14 +65,14 @@
                     :selectedSubcategory="selectedSubcategory"
                     v-on:childToParent="onSalvageClick"
                     >
-                    </salvage-subcategory> 
+                    </salvage-subcategory>
                     <services-category
                     v-if="showServicesCategory"
                     :toggle="toggleLiquor"
                     :selectedCategory="selectedCategory"
                     v-on:childToParent="onServicesClick"
                     >
-                    </services-category> 
+                    </services-category>
                     <tv-subcategory
                     v-if="showTvSubcategory"
                     :toggle="toggleLaptops"
@@ -80,7 +80,7 @@
                     :selectedSubcategory="selectedSubcategory"
                     v-on:childToParent="onTvClick"
                     >
-                    </tv-subcategory> 
+                    </tv-subcategory>
                     <audio-subcategory
                     v-if="showAudioSubcategory"
                     :toggle="toggleLaptops"
@@ -88,7 +88,7 @@
                     :selectedSubcategory="selectedSubcategory"
                     v-on:childToParent="onAudioClick"
                     >
-                    </audio-subcategory> 
+                    </audio-subcategory>
                     <div class="row mb-4">
                         <label for="ad_status" class="col-md-4 col-form-label text-md-end">Ad Status</label>
                         <div class="col-md-6">
@@ -98,9 +98,9 @@
                                 <option value="1ltr">unavailable</option>
                             </select>
                         </div>
-                    </div> 
+                    </div>
                     <div class="row mb-4">
-                        <label for="description" class="col-md-4 col-form-label text-md-end" >Description</label> 
+                        <label for="description" class="col-md-4 col-form-label text-md-end" >Description</label>
 
                         <div class="col-md-6">
 
@@ -109,12 +109,12 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label for="image" class="col-md-4 col-form-label text-md-end">Product Image</label> 
+                        <label for="image" class="col-md-4 col-form-label text-md-end">Product Image</label>
 
                         <div class="col-md-6">
 
                             <input type="file" class="form-control-file" id="image" name="image" @change="onFileSelected">
-                            
+
                         </div>
                     </div>
 
@@ -129,14 +129,14 @@
 
 
                     <div class="row pt-4">
-                        <button class="btn btn-warning text-white" @click="upload()">Add New Product</button>
+                        <button type="submit" class="btn btn-warning text-white">Add New Product</button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
-   
+
 </template>
 <script>
 import LiquorCategory from '../components/LiquorCategory.vue'
@@ -184,7 +184,7 @@ import LiquorCategory from '../components/LiquorCategory.vue'
         },
         methods: {
             toggleLiquor() {
-                if (this.selectedCategory === 1) 
+                if (this.selectedCategory === 1)
                 this.showLiquorCategory = !this.showLiquorCategory
                 else if (this.selectedCategory === 8)
                 this.showServicesCategory = !this.showServicesCategory
@@ -204,7 +204,7 @@ import LiquorCategory from '../components/LiquorCategory.vue'
                 this.showTvSubcategory = !this.showTvSubcategory
             },
             toggleDescription() {
-                if (this.selectedCategory === 8) 
+                if (this.selectedCategory === 8)
                 this.showDescriptionInp = !this.showDescriptionInp
             },
             onAudioClick (value) {
@@ -228,18 +228,29 @@ import LiquorCategory from '../components/LiquorCategory.vue'
             onFileSelected(e) {
                 this.image = e.target.files[0]
             },
-            authentication() {
+            upload() {
                 axios.get('/sanctum/csrf-cookie').then(response => {
-                    axios.post('/p', this.product_name, this.price,
-                     this.description, this.selectedCategory, 
-                     this.selectedSubcategory, this.audioData, this.laptopData, 
-                     this.liquorData, this.phoneData, this.SalvageData, 
-                     this.servicesData, this.tvData, this.ad_status)
+                    const data = new FormData();
+                    data.append('product_name', this.product_name);
+                    data.append('description', this.description);
+                    data.append('selectedCategory', this.selectedCategory);
+                    data.append('selectedSubcategory', this.selectedSubcategory);
+                    data.append('image', this.image)
+                    data.append('audioData', '');
+                    data.append('laptopData', '');
+                    data.append('liquorData', '');
+                    data.append('phoneData', '');
+                    data.append('salvageData', '');
+                    data.append('servicesData', '');
+                    data.append('tvData', '');
+                    data.append('ad_status', this.ad_status);
+
+                    axios.post('/p', data)
                      .then(response => {
                         console.log(response);
                      });
                 });
-            }
+            },
         },
 
         mounted() {
