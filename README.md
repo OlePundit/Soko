@@ -58,10 +58,10 @@ vim database/database.sqlite
 7. Finally run 
 
 ```
-php artisan migrate 
+php artisan migrate --seed 
 ```
             
-To set up the migrations.
+To set up the migrations and seed database.
 
 8. You might also want to run
   
