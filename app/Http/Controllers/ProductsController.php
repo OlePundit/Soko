@@ -78,8 +78,6 @@ class ProductsController extends Controller
             'product_name' => $data['product_name'],
             'selectedCategory' => $data['selectedCategory'],
             'selectedSubcategory' => $data['selectedSubcategory'],
-            'category' => $data['category'],
-            'subcategory' => $data['subcategory'],
             'volume' => $data['volume'],
             'type'=> $data['type'],
             'brand' => $data['brand'],
@@ -98,7 +96,7 @@ class ProductsController extends Controller
             'price' => $data['price'],
             'attachments' => $data['attachments'],
             'description' => $data['description'],
-            #'image' => $imagePath,
+            'image' => $imagePath,
             'liquorData' => $data['liquorData']
         ]);
 

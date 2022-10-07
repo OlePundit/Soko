@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="containter">
-        <form action = "/p" enctype="multipart/form-data" method="post" @submit.prevent="authentication">
+        <form action = "/p" enctype="multipart/form-data" method="post">
             <div class="row">
                 <div class="col-8 offset-2">
                     <div class="row text-center">
@@ -228,13 +228,24 @@ import LiquorCategory from '../components/LiquorCategory.vue'
             onFileSelected(e) {
                 this.image = e.target.files[0]
             },
-            authentication() {
+            upload() {
                 axios.get('/sanctum/csrf-cookie').then(response => {
-                    axios.post('/p', this.product_name, this.price,
-                     this.description, this.selectedCategory, 
-                     this.selectedSubcategory, this.audioData, this.laptopData, 
-                     this.liquorData, this.phoneData, this.SalvageData, 
-                     this.servicesData, this.tvData, this.ad_status)
+                    const data = new FormData();
+                    data.append('product_name', this.product_name);
+                    data.append('description', this.description);
+                    data.append('selectedCategory', this.selectedCategory);
+                    data.append('selectedSubcategory', this.selectedSubcategory);
+                    data.append('image', this.image)
+                    data.append('audioData', '');
+                    data.append('laptopData', '');
+                    data.append('liquorData', '');
+                    data.append('phoneData', '');
+                    data.append('salvageData', '');
+                    data.append('servicesData', '');
+                    data.append('tvData', '');
+                    data.append('ad_status', this.ad_status);
+
+                    axios.post('/p', data)
                      .then(response => {
                         console.log(response);
                      });
