@@ -33,6 +33,10 @@ To understand how best you could be of help to the application then please go th
 
 <br>
 
+<h2> Version Control </h2>
+There are two main branches. main and base1. base1 is the test version of the app. And is where the code for https://sellorbuyke.com/ is hosted (the test version). Whereas main is a few commits ahead. Its a new version of the app that we have been working on, although there is a major bug, that we have been trying to solve. It is issue number 1. It has been labelled bug. So am calling on all intermediate to advanced full stack developers to try and focus their efforts on that issue. Because if we solve it, I think we will have hacked the major problem.
+So you can choose to work on base1, which is what is currently being served on the [website](https://sellorbuyke.com/). Or you can choose to work on main, which is the next version of the app. Moving forward, issues affecting the test version will be labelled base1. Whereas all other issues will be focused on main.
+
 <h2>Enforcement</h2>
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [INSERT EMAIL ADDRESS]. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
