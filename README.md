@@ -87,6 +87,9 @@ Depending on the php installation
  
 The app should now be ready to go!⚡
 
+<h3>Contributing</h3>
+Read the contributing.md
+
 <h3>Lead Maintainer</h3>
 <table>
   <tbody><tr>
