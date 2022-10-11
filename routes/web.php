@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/', [App\Http\Controllers\ProductsController::class, 'index']);
 
 Auth::routes();
 
 Route::post('connect/{user}', [App\Http\Controllers\ConnectsController::class, 'store']);
-
-Route::get('/', [App\Http\Controllers\ProductsController::class, 'index']);
 
 Route::get('/explore', [App\Http\Controllers\ConnectsController::class, 'index']);
 
@@ -28,6 +27,8 @@ Route::get('/p/create', [App\Http\Controllers\ProductsController::class, 'create
 Route::post('/p', [App\Http\Controllers\ProductsController::class, 'store']);
 
 Route::get('/p/{product}', [App\Http\Controllers\ProductsController::class, 'show']);
+
+Route::get('/p/{product}/edit', [App\Http\Controllers\ProductsController::class, 'edit']);
 
 Route::get('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'index'])->name('shop.show');
 

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Soko</title>
+    <title>SellorBuyKe</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -117,7 +117,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand mt-2" href="#">
+                <a class="navbar-brand mt-2" href="/">
                   <img src="/storage/uploads/soko.png" alt="" width="100" height="72" class="d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -135,7 +135,7 @@
 
                     <!-- Right Side Of Navbar -->
                 
-
+                  @if (Auth::user())
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="/shop/{{ Auth::user()->id }}">My Shop</a>
                     </div>
@@ -143,6 +143,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="/explore">Explore</a>
                     </div>
+                  @endif  
 
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -194,15 +195,15 @@
 
         <div class="row justify-content-center g-5">
           <div class="col-lg-4 col-md-4 col-xs-4">
-            <h3 class="footer-heading">About Soko<h3>
-            <div class="fs-5">Soko is an online market where buyers and sellers... </div>
+            <h3 class="footer-heading">About SellorBuyKe<h3>
+            <div class="fs-5">SellorBuyKe is an online market where buyers and sellers... </div>
             <p><a href="about" class="footer-link-more">Learn More</a></p>
           </div>
           <div class="col-6 col-lg-2 col-md-4 col-xs-4">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="index.html" class="link"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="guestpost" class="link"><i class="bi bi-chevron-right"></i> Create Shop</a></li>
+              <li><a href="/" class="link"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="/register" class="link"><i class="bi bi-chevron-right"></i> Create Shop</a></li>
               <li><a href="about" class="link"><i class="bi bi-chevron-right"></i> Blog</a></li>
               <li><a href="contact" class="link"><i class="bi bi-chevron-right"></i> Contact us</a></li>
             </ul>

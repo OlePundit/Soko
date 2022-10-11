@@ -10,11 +10,6 @@ use App\Models\User;
 
 class ProductsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
        $marketplaces = Product::take(6)->get();
@@ -23,15 +18,19 @@ class ProductsController extends Controller
 
        $whiskys = Product::where('category','whisky')->take(6)->get();
 
-       $vodkas = Product::where('category','vodka')->take(6)->get();
-
        $gins = Product::where('category','gin')->take(6)->get();
 
        $beers = Product::where('category','beer')->take(6)->get();
 
        $mixers = Product::where('category','mixers')->take(6)->get();
 
-       return view('Products.index', compact('marketplaces', 'wines', 'gins','vodkas','beers', 'whiskys','mixers'));
+       return view('Products.index', compact('marketplaces', 'wines', 'gins','beers', 'whiskys','mixers'));
+    }
+    public function edit(Product $product )
+    {
+        $this->authorize('update', $product->product);
+
+        return view('Products.edit', compact('product'));
     }
     public function create()
     {
