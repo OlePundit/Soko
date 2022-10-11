@@ -27,7 +27,13 @@ class ProductsController extends Controller
 
        $mixers = Product::where('category','mixers')->take(6)->get();
 
-       return view('Products.index', compact('marketplaces', 'wines', 'gins','vodkas','beers', 'whiskys','mixers'));
+       return view('Products.index', compact('marketplaces', 'wines', 'gins','beers', 'whiskys','mixers'));
+    }
+    public function edit(\App\Models\Product $product)
+    {
+        $this->authorize('update', $product->auth()->user()->product);
+
+        return view('Products.edit', compact('product'));
     }
     
     public function create()
