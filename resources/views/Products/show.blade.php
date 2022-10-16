@@ -33,8 +33,8 @@
             <p>{{$product->stock}}</p>
             <p>{{$product->description}}</p>
             <div>
-                @can ('update', $user->product)   
-                <a href="/product/{{$product->id}}/edit" class="link mx-1 mt-2">
+                @can ('update', $product)   
+                <a href="/p/{{$product->id}}/edit" class="link mx-1 mt-2">
                 <button type="button" class="btn btn-primary">Edit Product</button>
                 </a>
                 @endcan             

@@ -29,35 +29,29 @@ class ProductsController extends Controller
 
        return view('Products.index', compact('marketplaces', 'wines', 'gins','beers', 'whiskys','mixers'));
     }
-    public function edit(\App\Models\User $user)
+    public function edit(\App\Models\Product $product)
     {
-        $this->authorize('update', $user->product);
+        $this->authorize('update', $product);
 
-        return view('Products.edit', compact('user'));
+        return view('Products.edit', compact('product'));
     }
     
-    public function update(User $user)
+    public function update(Product $product)
     {
-        $this->authorize('update', $user->product);
+        $this->authorize('update', $product);
         $data =  request()->validate([
             'category'=>'',
             'product_name'=>'',
             'volume'=>'',
             'stock'=>'',
             'description'=>'',
-            'image'=>'',
 
         ]);
-        if(request('image')){
-            $imagePath = request('image')->store('uploads','public');
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-            $image->save();
-            $imageArray = ['image' => $imagePath];
-        }
 
-        auth()->user()->products->update(array_merge(
+    
+
+        $product->update(array_merge(
             $data,
-            $imageArray ?? []
         ));
 
         return redirect("/product/{$product->id}");
@@ -77,6 +71,7 @@ class ProductsController extends Controller
         'stock' => 'required', 
         'price' => ['required', 'integer'],
         'description' => '',
+        'offer' => 'nullable',
         'image' => ['required', 'image'],
         ]);
 
@@ -85,6 +80,7 @@ class ProductsController extends Controller
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
         $image->save();
 
+
         auth()->user()->products()->create([
             'product_name' => $data['product_name'],
             'category' => $data['category'],
@@ -92,6 +88,7 @@ class ProductsController extends Controller
             'stock' => $data['stock'], 
             'price' => $data['price'],
             'description' => $data['description'],
+            'offer'=>$data['offer'],
             'image' => $imagePath,
         ]);
 

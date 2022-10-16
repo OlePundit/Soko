@@ -53,7 +53,7 @@ class ProductPolicy
      */
     public function update(User $user, Product $product)
     {
-        return $user->id==$product->user_id;
+        return $user->id===$product->user_id;
     }
 
     /**

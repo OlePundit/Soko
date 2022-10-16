@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="container">
-    <form action = "/p" enctype="multipart/form-data" method="post">
+    <form action = "/offers/create" enctype="multipart/form-data" method="post">
     @csrf
     <div class="row">
         <div class="col-8 offset-2">
             <div class="row text-center">
-                <h2>Create new product</h2>
+                <h2>Create new offer</h2>
             </div>
             <div class="row mb-4">
-                <label for="product_name" class="col-md-4 col-form-label text-md-end">Product Name</label>
+                <label for="product_name" class="col-md-4 col-form-label text-md-end">Current price</label>
 
                 <div class="col-md-6">
                     <input id="product_name" type="text" class="form-control @error('product_name') is-invalid @enderror" name="product_name" value="{{ old('product_name') }}" required autocomplete="product_name" autofocus>
@@ -103,21 +103,6 @@
                 </div>
                 
 
-            </div>
-
-            <div class="row mb-4">
-                <label for="offer" class="col-md-4 col-form-label text-md-end">Offer</label>
-
-                <div class="col-md-6">
-                    <h5>Enter discounted price (optional)</h5>
-                    <input id="offer" type="text" class="form-control @error('offer') is-invalid @enderror" name="offer" value="{{ old('offer') }}" autofocus>
-
-                    @error('offer')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
             </div>
 
             <div class="row">

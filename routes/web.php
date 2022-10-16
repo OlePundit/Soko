@@ -30,7 +30,7 @@ Route::get('/p/{product}', [App\Http\Controllers\ProductsController::class, 'sho
 
 Route::get('/p/{product}/edit', [App\Http\Controllers\ProductsController::class, 'edit'])->name('Products.edit');
 
-Route::get('/p/{product}', [App\Http\Controllers\ProductsController::class, 'update'])->name('Products.update');
+Route::patch('/p/{product}', [App\Http\Controllers\ProductsController::class, 'update'])->name('Products.update');
 
 Route::get('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'index'])->name('Shop.show');
 
