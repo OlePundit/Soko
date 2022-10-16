@@ -227,6 +227,7 @@ import LiquorCategory from '../components/LiquorCategory.vue'
             },
             onFileSelected(e) {
                 this.image = e.target.files[0]
+                console.log({ image: this.image})
             },
             upload() {
                 axios.get('/sanctum/csrf-cookie').then(response => {
