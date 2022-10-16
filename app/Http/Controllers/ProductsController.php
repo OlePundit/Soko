@@ -29,13 +29,39 @@ class ProductsController extends Controller
 
        return view('Products.index', compact('marketplaces', 'wines', 'gins','beers', 'whiskys','mixers'));
     }
-    public function edit(\App\Models\Product $product)
+    public function edit(\App\Models\User $user)
     {
-        $this->authorize('update', $product->auth()->user()->product);
+        $this->authorize('update', $user->product);
 
-        return view('Products.edit', compact('product'));
+        return view('Products.edit', compact('user'));
     }
     
+    public function update(User $user)
+    {
+        $this->authorize('update', $user->product);
+        $data =  request()->validate([
+            'category'=>'',
+            'product_name'=>'',
+            'volume'=>'',
+            'stock'=>'',
+            'description'=>'',
+            'image'=>'',
+
+        ]);
+        if(request('image')){
+            $imagePath = request('image')->store('uploads','public');
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+            $image->save();
+            $imageArray = ['image' => $imagePath];
+        }
+
+        auth()->user()->products->update(array_merge(
+            $data,
+            $imageArray ?? []
+        ));
+
+        return redirect("/product/{$product->id}");
+    }
     public function create()
     {
 

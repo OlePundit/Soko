@@ -28,13 +28,15 @@ Route::post('/p', [App\Http\Controllers\ProductsController::class, 'store']);
 
 Route::get('/p/{product}', [App\Http\Controllers\ProductsController::class, 'show']);
 
-Route::get('/p/{product}/edit', [App\Http\Controllers\ProductsController::class, 'edit']);
+Route::get('/p/{product}/edit', [App\Http\Controllers\ProductsController::class, 'edit'])->name('Products.edit');
 
-Route::get('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'index'])->name('shop.show');
+Route::get('/p/{product}', [App\Http\Controllers\ProductsController::class, 'update'])->name('Products.update');
 
-Route::get('/shop/{user}/edit', [App\Http\Controllers\ShopsController::class, 'edit'])->name('shops.edit');
+Route::get('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'index'])->name('Shop.show');
 
-Route::patch('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'update'])->name('shops.update');
+Route::get('/shop/{user}/edit', [App\Http\Controllers\ShopsController::class, 'edit'])->name('Shops.edit');
+
+Route::patch('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'update'])->name('Shops.update');
 
 
 
