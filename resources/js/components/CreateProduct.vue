@@ -3,9 +3,6 @@
 
     <div class="containter">
         <form action = "/p" enctype="multipart/form-data" method="post">
-        <script type="text/javascript">      
-        window.csrf_token = "{{ csrf_token() }}"
-        </script>
             <div class="row">
                 <div class="col-8 offset-2">
                     <div class="row text-center">
