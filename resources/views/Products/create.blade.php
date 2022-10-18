@@ -69,8 +69,8 @@
                 <div class="col-md-6">
                     <select name="stock" id="stock" class="form-select col-md-6">
                         <option value="null">stock status</option>
-                        <option value="available">In stock</option>
-                        <option value="unavailable">Out of stock</option>
+                        <option value="available">available</option>
+                        <option value="unavailable">unavailable</option>
                     </select>
                 </div>
             </div>    

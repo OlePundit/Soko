@@ -23,50 +23,58 @@
                     @enderror
                 </div>
             </div>
-             <div class="row mb-4">
-                <label for="category" class="col-md-4 col-form-label text-md-end">category</label>
-
+            <div class="row mb-4">
+                <label for="category" class="col-md-4 col-form-label text-md-end">Category</label>
                 <div class="col-md-6">
-                    <input id="category" type="text" class="form-control @error('category') is-invalid @enderror" name="category" value="{{ old('category') ?? $product->category}}" required autocomplete="category" autofocus>
-
-                    @error('category')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <select name="category" id="category" class="form-select col-md-6">
+                        <option value="{{ old('category') ?? $product->category}}">{{ old('category') ?? $product->category}}</option>
+                        <option value="wine">Wine</option>
+                        <option value="whisky">Whisky</option>
+                        <option value="brandy">Brandy</option>
+                        <option value="scotch">Scotch</option>
+                        <option value="spirit">Spirit</option>
+                        <option value="gin">Gin</option>
+                        <option value="vodka">Vodka</option>
+                        <option value="beer">Beer</option>
+                        <option value="rum">Rum</option>
+                        <option value="mixers">Mixers</option>
+                        <option value="bourbon">Bourbon</option>
+                        <option value="cognac">Cognac</option>
+                        <option value="cognac">Cream</option>
+                        <option value="cognac">Mixers</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
             </div>
             <div class="row mb-4">
-                <label for="volume" class="col-md-4 col-form-label text-md-end">volume</label>
-
+                <label for="volume" class="col-md-4 col-form-label text-md-end">Volume</label>
                 <div class="col-md-6">
-                    <input id="volume" type="text" class="form-control @error('volume') is-invalid @enderror" name="volume" value="{{ old('volume') ?? $product->volume}}" required autocomplete="volume" autofocus>
-
-                    @error('volume')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <select name="volume" id="volume" class="form-select col-md-6">
+                        <option value="{{ old('volume') ?? $product->volume}}">{{ old('volume') ?? $product->volume}}</option>
+                        <option value="5ltr">5ltr</option>
+                        <option value="1ltr">1ltr</option>
+                        <option value="750ml">750ml</option>
+                        <option value="500ml">500ml</option>
+                        <option value="250ml">250ml</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
-            </div>
+            </div> 
             <div class="row mb-4">
-                <label for="stock" class="col-md-4 col-form-label text-md-end">stock</label>
-
+                <label for="stock" class="col-md-4 col-form-label text-md-end">Stock status</label>
                 <div class="col-md-6">
-                    <input id="stock" type="text" class="form-control @error('stock') is-invalid @enderror" name="stock" value="{{ old('stock') ?? $product->stock}}" required autocomplete="stock" autofocus>
-
-                    @error('stock')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <select name="stock" id="stock" class="form-select col-md-6">
+                        <option value="{{ old('stock') ?? $product->stock}}">{{ old('stock') ?? $product->stock}}</option>
+                        <option value="available">available</option>
+                        <option value="unavailable">unavailable</option>
+                    </select>
                 </div>
-            </div>
+            </div>  
             <div class="row mb-4">
                 <label for="price" class="col-md-4 col-form-label text-md-end">Price</label>
 
                 <div class="col-md-6">
-                    <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus>
+                    <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') ?? $product->price }}" required autocomplete="price" autofocus>
 
                     @error('price')
                         <span class="invalid-feedback" role="alert">
