@@ -5563,12 +5563,30 @@ __webpack_require__.r(__webpack_exports__);
     },
     onFileSelected: function onFileSelected(e) {
       this.image = e.target.files[0];
+      console.log({
+        image: this.image
+      });
     },
-    authentication: function authentication() {
+    upload: function upload() {
       var _this2 = this;
 
       axios.get('/sanctum/csrf-cookie').then(function (response) {
-        axios.post('/p', _this2.product_name, _this2.price, _this2.description, _this2.selectedCategory, _this2.selectedSubcategory, _this2.audioData, _this2.laptopData, _this2.liquorData, _this2.phoneData, _this2.SalvageData, _this2.servicesData, _this2.tvData, _this2.ad_status).then(function (response) {
+        var data = new FormData();
+        data.append('product_name', _this2.product_name);
+        data.append('description', _this2.description);
+        data.append('selectedCategory', _this2.selectedCategory);
+        data.append('selectedSubcategory', _this2.selectedSubcategory);
+        data.append('image', _this2.image);
+        data.append('audioData', '');
+        data.append('laptopData', '');
+        data.append('liquorData', '');
+        data.append('phoneData', '');
+        data.append('salvageData', '');
+        data.append('servicesData', '');
+        data.append('tvData', '');
+        data.append('ad_status', _this2.ad_status);
+        console.log(data);
+        axios.post('/p', data).then(function (response) {
           console.log(response);
         });
       });
@@ -6072,12 +6090,6 @@ var render = function render() {
       action: "/p",
       enctype: "multipart/form-data",
       method: "post"
-    },
-    on: {
-      submit: function submit($event) {
-        $event.preventDefault();
-        return _vm.authentication.apply(null, arguments);
-      }
     }
   }, [_c("div", {
     staticClass: "row"

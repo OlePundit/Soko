@@ -1,7 +1,11 @@
 <template>
 <div>
+
     <div class="containter">
         <form action = "/p" enctype="multipart/form-data" method="post">
+        <script type="text/javascript">      
+        window.csrf_token = "{{ csrf_token() }}"
+        </script>
             <div class="row">
                 <div class="col-8 offset-2">
                     <div class="row text-center">
@@ -245,6 +249,8 @@ import LiquorCategory from '../components/LiquorCategory.vue'
                     data.append('servicesData', '');
                     data.append('tvData', '');
                     data.append('ad_status', this.ad_status);
+
+                    console.log(data);
 
                     axios.post('/p', data)
                      .then(response => {

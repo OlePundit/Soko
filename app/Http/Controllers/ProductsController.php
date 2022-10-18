@@ -48,23 +48,23 @@ class ProductsController extends Controller
         'product_name' => '',
         'selectedCategory' => '',
         'selectedSubcategory' => '',
-        'volume' => '',
-        'type'=> '',
-        'brand' => '',
-        'transmission' => '',
-        'consumption' => '',
-        'numberplate'=> '',
-        'yom' => '',
-        'processor' => '',
-        'operatingSystem' => '',
-        'storageType' => '',
-        'storageCapacity'=> '',
-        'memory' => '',
-        'display' => '',
-        'ad_status' => '', 
-        'condition'=> '',
+        'volume' => 'nullable',
+        'type'=> 'nullable',
+        'brand' => 'nullable',
+        'transmission' => 'nullable',
+        'consumption' => 'nullable',
+        'numberplate'=> 'nullable',
+        'yom' => 'nullable',
+        'processor' => 'nullable',
+        'operatingSystem' => 'nullable',
+        'storageType' => 'nullable',
+        'storageCapacity'=> 'nullable',
+        'memory' => 'nullable',
+        'display' => 'nullable',
+        'ad_status' => 'nullable', 
+        'condition'=> 'nullable',
         'price' => '',
-        'attachments' => '',
+        'attachments' => 'nullable',
         'description' => '',
         'image' => '',
         ]);
@@ -73,6 +73,7 @@ class ProductsController extends Controller
 
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
         $image->save();
+    
 
         auth()->user()->products()->create([
             'product_name' => $data['product_name'],
@@ -97,7 +98,8 @@ class ProductsController extends Controller
             'attachments' => $data['attachments'],
             'description' => $data['description'],
             'image' => $imagePath,
-            'liquorData' => $data['liquorData']
+            'liquorData' => $data['liquorData'],
+            'token' => $token,
         ]);
 
         return redirect('/shop/' . auth()->user()->id);
