@@ -25,9 +25,8 @@ Route::get('/explore', [App\Http\Controllers\ConnectsController::class, 'index']
 
 Route::get('/p/create', [App\Http\Controllers\ProductsController::class, 'create']);
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/p', [App\Http\Controllers\ProductsController::class, 'store']);
-});
+
+Route::post('/p', [App\Http\Controllers\ProductsController::class, 'store']);
 
 
 Route::get('/p/{product}', [App\Http\Controllers\ProductsController::class, 'show']);
