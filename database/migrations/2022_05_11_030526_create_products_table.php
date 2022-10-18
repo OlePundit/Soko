@@ -23,7 +23,8 @@ return new class extends Migration
             $table->integer('price');
             $table->text('description')->nullable()->default(0);
             $table->integer('offer')->nullable()->default(0);
-            $table->string('image');         
+            $table->string('image');   
+            $table->integer('discount')->nullable()->default(0);      
             $table->timestamps();
         });
     }

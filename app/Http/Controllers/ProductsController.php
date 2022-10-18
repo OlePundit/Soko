@@ -73,12 +73,19 @@ class ProductsController extends Controller
         'description' => '',
         'offer' => 'nullable',
         'image' => ['required', 'image'],
+        'discount' => 'nullable',
         ]);
 
         $imagePath = request('image')->store('uploads', 'public');
 
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
         $image->save();
+
+        $price = $data['price'];
+        $offer = $data['offer'];
+        $computed = $offer - $price;
+        $newcomputed = $computed / $price;
+        $finalcomputed = ($newcomputed * 100);
 
 
         auth()->user()->products()->create([
@@ -90,12 +97,18 @@ class ProductsController extends Controller
             'description' => $data['description'],
             'offer'=>$data['offer'],
             'image' => $imagePath,
+            'discount' => $finalcomputed,
         ]);
+        
 
         return redirect('/shop/' . auth()->user()->id);
 
 
       
+    }
+
+    public function computed(){
+        
     }
 
     public function show(\App\Models\Product $product)

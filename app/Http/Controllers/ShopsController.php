@@ -43,9 +43,9 @@ class ShopsController extends Controller
     {
         $this->authorize('update',$user->shop);
         $data = request()->validate([
-            'description'=>'required',
-            'url'=>'',
-            'image'=>'',
+            'description'=>'nullable',
+            'url'=>'nullable',
+            'image'=>'nullable',
         ]);
 
         if (request('image')){

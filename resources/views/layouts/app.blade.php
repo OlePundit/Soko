@@ -111,6 +111,23 @@
     .footer .credits a {
     color: var(--color-white);
     }
+    
+    .box{
+        position: relative;
+        display: inline-block; /* Make the width of box same as image */
+    }
+  
+    .box .text{
+        position: absolute;
+        z-index: 999;
+        margin: 0;
+        left: 12px;
+        right: 0;
+        top: 2%; /* Adjust this value to move the positioned div up and down */
+        text-align: start;
+        width: 4%; /* Set the width of the positioned div */
+        background-color:white;
+    }
     </style>
 </head>
 <body>

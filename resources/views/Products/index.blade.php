@@ -7,7 +7,12 @@
         <div class="row justify-content-center">
             @foreach ($wines as $wine)          
             <div class="col pt-2 mx-2">          
-            <a href="/p/{{$wine->id}}"><img src="/storage/{{$wine->image}}" class="card-img-top rounded" style="max-width: 100%;"></a>
+                <a href="/p/{{$wine->id}}">
+                    <div class="box">
+                    <img src="/storage/{{$wine->image}}" class="card-img-top rounded" style="max-width: 100%;">
+                    <div class="text">-{{$wine->discount}}%</div>
+                    </div>
+                </a>
                 <div class="card-body">
                     <div class="d-flex mb-1 align-items-center">
                         <div style="padding-right: 20px;">
@@ -26,7 +31,12 @@
                         </div>
                     </div>
                     <p class="font-weight-bold">{{$wine->product_name}} <span>{{$wine->volume}}</span></p>
+                    @if ($wine->offer)
+                    <strong>{{$wine->offer}}<span> KSH </span></strong> 
+                    <s><p>{{$wine->price}}<span> KSH </span></p></s>     
+                    @else
                     <strong>{{$wine->price}}<span> KSH </span></strong> 
+                    @endif
                 </div> 
             </div>
             @endforeach
