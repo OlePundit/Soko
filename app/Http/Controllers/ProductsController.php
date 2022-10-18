@@ -54,7 +54,7 @@ class ProductsController extends Controller
             $data,
         ));
 
-        return redirect("/product/{$product->id}");
+        return redirect("/p/{$product->id}");
     }
     public function create()
     {
