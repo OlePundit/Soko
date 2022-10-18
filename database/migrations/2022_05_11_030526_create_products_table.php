@@ -17,6 +17,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('product_name');
+            $table->string('selectedCategory');
+            $table->string('selectedSubcategory');
             $table->string('volume')->nullable()->default(0);
             $table->string('type')->nullable()->default(0);
             $table->string('brand')->nullable()->default(0);
