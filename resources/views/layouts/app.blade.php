@@ -19,115 +19,120 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
     <style>
-        .link {
-        text-decoration:none;
-        }
-        --------------------------------------------------------------*/
-    .footer {
-    overflow: hidden;
-    background: rgba(var(--color-black-rgb), 0.9);
-    font-size: 16px;
-    color: rgba(var(--color-white-rgb), 0.7);
-    }
-    .footer .footer-content {
-    padding: 60px 0;
-    }
-    .footer a.footer-link-more {
-    color: rgba(var(--color-white-rgb), 0.7);
-    display: inline-block;
-    position: relative;
-    }
-    .footer a.footer-link-more:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--color-white);
-    }
-    .footer a.footer-link-more:hover {
-    color: rgba(var(--color-white-rgb), 1);
-    }
-    .footer .footer-heading {
-    color: var(--color-white);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    font-size: 18px;
-    }
-    .footer .footer-blog-entry li {
-    margin-bottom: 20px;
-    display: block;
-    }
-    .footer .footer-blog-entry li a .post-meta {
-    font-size: 10px;
-    letter-spacing: 0.07rem;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-family: var(--font-secondary);
-    color: rgba(var(--color-white-rgb), 0.4);
-    margin-bottom: 0px;
-    }
-    .footer .footer-blog-entry li a img {
-    flex: 0 0 50px;
-    width: 50px;
-    }
-    .footer .footer-links li {
-    margin-bottom: 10px;
-    }
-    .footer .footer-links li a {
-    color: rgba(var(--color-white-rgb), 0.7);
-    }
-    .footer .footer-links li a:hover, .footer .footer-links li a:focus {
-    color: rgba(var(--color-white-rgb), 1);
-    }
-    .footer .footer-legal {
-    background: var(--color-black);
-    padding: 40px 0;
-    }
-    .footer .footer-legal .social-links a {
-    text-align: center;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(var(--color-white-rgb), 0.09);
-    border-radius: 50%;
-    color: var(--color-white);
-    line-height: 40px;
-    }
-    .footer .footer-legal .social-links a:hover {
-    background-color: rgba(var(--color-white-rgb), 0.2);
-    }
-    .footer .copyright strong {
-    font-weight: 400;
-    }
-    .footer .credits {
-    padding-top: 6px;
-    font-size: 13px;
-    }
-    .footer .credits a {
-    color: var(--color-white);
-    }
-    
-    .box{
-        position: relative;
-        display: inline-block; /* Make the width of box same as image */
-    }
-  
-    .box .text{
-        position: absolute;
-        z-index: 999;
-        margin: 0;
-        left: 12px;
-        right: 0;
-        top: 2%; /* Adjust this value to move the positioned div up and down */
-        text-align: start;
-        width: 4%; /* Set the width of the positioned div */
-        background-color:white;
-    }
+      .navbar{
+      height: 90px;
+      }
+      .link {
+          text-decoration:none;
+          }
+          --------------------------------------------------------------*/
+      .footer {
+      overflow: hidden;
+      background: rgba(var(--color-black-rgb), 0.9);
+      font-size: 16px;
+      color: rgba(var(--color-white-rgb), 0.7);
+      }
+      .footer .footer-content {
+      padding: 60px 0;
+      }
+      .footer a.footer-link-more {
+      color: rgba(var(--color-white-rgb), 0.7);
+      display: inline-block;
+      position: relative;
+      }
+      .footer a.footer-link-more:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--color-white);
+      }
+      .footer a.footer-link-more:hover {
+      color: rgba(var(--color-white-rgb), 1);
+      }
+      .footer .footer-heading {
+      color: var(--color-white);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      font-size: 18px;
+      }
+      .footer .footer-blog-entry li {
+      margin-bottom: 20px;
+      display: block;
+      }
+      .footer .footer-blog-entry li a .post-meta {
+      font-size: 10px;
+      letter-spacing: 0.07rem;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-family: var(--font-secondary);
+      color: rgba(var(--color-white-rgb), 0.4);
+      margin-bottom: 0px;
+      }
+      .footer .footer-blog-entry li a img {
+      flex: 0 0 50px;
+      width: 50px;
+      }
+      .footer .footer-links li {
+      margin-bottom: 10px;
+      }
+      .footer .footer-links li a {
+      color: rgba(var(--color-white-rgb), 0.7);
+      }
+      .footer .footer-links li a:hover, .footer .footer-links li a:focus {
+      color: rgba(var(--color-white-rgb), 1);
+      }
+      .footer .footer-legal {
+      background: var(--color-black);
+      padding: 40px 0;
+      }
+      .footer .footer-legal .social-links a {
+      text-align: center;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(var(--color-white-rgb), 0.09);
+      border-radius: 50%;
+      color: var(--color-white);
+      line-height: 40px;
+      }
+      .footer .footer-legal .social-links a:hover {
+      background-color: rgba(var(--color-white-rgb), 0.2);
+      }
+      .footer .copyright strong {
+      font-weight: 400;
+      }
+      .footer .credits {
+      padding-top: 6px;
+      font-size: 13px;
+      }
+      .footer .credits a {
+      color: var(--color-white);
+      }
+
+      .box{
+          position: relative;
+          display: inline-block; /* Make the width of box same as image */
+      }
+
+      .box .text{
+          position: absolute;
+          z-index: 999;
+          margin: 0;
+          left: 12px;
+          right: 0;
+          top: 2%; /* Adjust this value to move the positioned div up and down */
+          text-align: start;
+          width: 4%; /* Set the width of the positioned div */
+          background-color:white;
+      }
+      .explainer{
+          font-size:20px;
+      }
     </style>
 </head>
 <body>

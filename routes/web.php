@@ -38,5 +38,7 @@ Route::get('/shop/{user}/edit', [App\Http\Controllers\ShopsController::class, 'e
 
 Route::patch('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'update'])->name('Shops.update');
 
+Route::get('/about', [App\Http\Controllers\AboutController:: class, 'index']);
+
 
 
