@@ -42,14 +42,14 @@ class ProductsController extends Controller
     {
         $this->authorize('update', $product);
         $data =  request()->validate([
-            'category'=>'',
-            'product_name'=>'',
-            'volume'=>'',
-            'stock'=>'',
-            'price'=>'',
-            'description'=>'',
-            'offer'=>'',
-            'discount'=>'',
+            'category'=>'nullable',
+            'product_name'=>'nullable',
+            'volume'=>'nullable',
+            'stock'=>'nullable',
+            'price'=>'nullable',
+            'description'=>'nullable',
+            'offer'=>'nullable',
+            'discount'=>'nullable',
 
         ]);
 
