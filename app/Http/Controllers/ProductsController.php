@@ -88,7 +88,7 @@ class ProductsController extends Controller
 
         $price = $data['price'];
         $offer = $data['offer'];
-        $computed = $offer - $price;
+        $computed =  $price-$offer;
         $newcomputed = $computed / $price;
         $finalcomputed = ($newcomputed * 100);
 
