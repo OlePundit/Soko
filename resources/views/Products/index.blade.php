@@ -50,7 +50,7 @@
                 <a href="/p/{{$wine->id}}">
                     <div class="box">
                     <img src="/storage/{{$wine->image}}" class="card-img-top rounded" style="max-width: 100%;">
-                    @if($wine->discount > 0)
+                    @if($wine->discount)
                     <div class="text">{{$wine->discount}}%</div>
                     @endif
                     </div>
