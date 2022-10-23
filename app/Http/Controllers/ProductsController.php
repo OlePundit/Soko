@@ -27,9 +27,9 @@ class ProductsController extends Controller
 
        $mixers = Product::where('category','mixers')->take(6)->get();
 
-       //$discounts = Product::where('discount','>',5)->orderByDesc('discount')->take(6)->get();
+       $discounts = Product::where('discount','>',5)->orderByDesc('discount')->take(6)->get();
 
-       return view('Products.index', compact('marketplaces', 'wines', 'gins','beers', 'whiskys','mixers'));
+       return view('Products.index', compact('marketplaces', 'wines', 'gins','beers', 'whiskys','mixers','discounts'));
     }
     public function edit(\App\Models\Product $product)
     {
