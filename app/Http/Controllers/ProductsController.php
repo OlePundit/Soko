@@ -46,7 +46,10 @@ class ProductsController extends Controller
             'product_name'=>'',
             'volume'=>'',
             'stock'=>'',
+            'price'=>'',
             'description'=>'',
+            'offer'=>'',
+            'discount'=>'',
 
         ]);
 
