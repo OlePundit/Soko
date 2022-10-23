@@ -9,8 +9,8 @@
             <div class="col pt-2 mx-2">          
                 <a href="/p/{{$discount->id}}">
                     <div class="box">
-                    <img src="/storage/{{$discount->image}}" class="card-img-top rounded" style="max-width: 100%;">
-                    <div class="text">{{$discount->discount}}%</div>
+                        <img src="/storage/{{$discount->image}}" class="card-img-top rounded" style="max-width: 100%;">
+                        <div class="text">{{$discount->discount}}%</div>
                     </div>
                 </a>
                 <div class="card-body">
