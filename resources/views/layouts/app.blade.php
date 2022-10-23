@@ -127,7 +127,7 @@
           right: 0;
           top: 2%; /* Adjust this value to move the positioned div up and down */
           text-align: start;
-          width: 6%; /* Set the width of the positioned div */
+          width: 10%; /* Set the width of the positioned div */
           background-color:white;
       }
       .explainer{
