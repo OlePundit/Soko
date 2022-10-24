@@ -29,7 +29,12 @@
             <hr>
 
             <p>{{$product->product_name}} <span>{{$product->volume}}</span></p>
-            <p><strong> Ksh </strong> {{$product->price}}<span></span></p>
+            @if($product->offer)
+             {{$product->offer}}<span><strong> Ksh</strong> </span>
+            <s><p>{{$product->price}}<span> KSH </span></p></s> 
+            @else 
+            <p><strong></strong> {{$product->price}}<span> Ksh </span></p> 
+            @endif
             <p>{{$product->stock}}</p>
             <p>{{$product->description}}</p>
             <div>

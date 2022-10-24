@@ -8,8 +8,12 @@
                 <strong> {{ $user->shop_name}} </strong>
                 <connect-button user-id="{{$user->id}}" connects="{{$connects}}"></connect-button>
             </div>
+            @if ($user->description)
             <div>{{ $user->shop->description}}</div>
+            @endif
+            @if($user->url)
             <div><a href="#">{{ $user->shop->url}}</a></div>
+            @endif
             <div class="d-flex">
                 <div style="padding-right: 25px;"><strong>{{$productCount}}</strong> products</div>
                 <div class="pr-5"><strong>{{ $connectsCount }}</strong> connects</div>

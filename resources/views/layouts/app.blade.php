@@ -128,7 +128,6 @@
           top: 2%; /* Adjust this value to move the positioned div up and down */
           text-align: start;
           width: 20%; /* Set the width of the positioned div */
-          background-color:white;
       }
       .explainer{
           font-size:20px;
