@@ -40,5 +40,18 @@ Route::patch('/shop/{user}', [App\Http\Controllers\ShopsController::class, 'upda
 
 Route::get('/about', [App\Http\Controllers\AboutController:: class, 'index']);
 
+Route::get('/wine', [App\Http\Controllers\WineController:: class, 'index']);
+
+Route::get('/whisky', [App\Http\Controllers\WhiskyController:: class, 'index']);
+
+Route::get('/gin', [App\Http\Controllers\GinController:: class, 'index']);
+
+Route::get('/beer', [App\Http\Controllers\BeerController:: class, 'index']);
+
+Route::get('/vodka', [App\Http\Controllers\VodkaController:: class, 'index']);
+
+
+
+
 
 

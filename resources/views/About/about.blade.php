@@ -3,13 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-10 offset-2">
             <h1>About Salvacar</h1>
-            <p class="explainer">
-                Sellorbuyke.com, is an online marketplace where wholesalers and retailers in the wines and spirits industry can advertise their products for free, and gain access to an online market.
-                Buyers also have the opportunity to choose their favourite alcohol from a wide variety of liquor products, right from the comfort of their own homes.
-                Through availing cutting-edge technology and providing a seamless experience for our clients, we aim to increase the ease of doing business in the silicone savannah.
-            </p>
+            <div class="d-flex">
+                <p class="explainer">
+                    Sellorbuyke.com is an online marketplace where wholesalers and retailers in the wines and spirits industry can advertise their products for free, and gain access to an online market.
+                    Buyers also have the opportunity to choose their favourite alcohol from a wide variety of liquor products, right from the comfort of their own homes.
+                    Through availing cutting-edge technology and providing a seamless experience for our clients, we aim to increase the ease of doing business in the silicone savannah.
+                </p>
+                <img src="/storage/about/about1.png" width="400" height="400" class="float-right">
+            </div>
             <button class="btn btn-primary text-white mb-3">EXPLORE</button>
             <h2>Why Buy or Sell on SellorBuyKe?</h2>
             <ol class="explainer">
@@ -23,15 +26,18 @@
 
             <h2>How to sell on Salvacar</h2>
             <h3>Registering your account and creating a shop</h3>
-            <ol class="explainer">
-               <li>Click on Register at the top right of the homepage, fill in the details then submit.</li>
-               <li>At the top of the home page click 'My shop'</li>
-               <li> You will be redirected to your shop page,where you can upload, edit, view your products and connections.</li>
-               <li>To edit your shop bio, click on the 'edit shop' button at the top of the page.</li>
-               <li>You will be redirected to the shop edit page, where you can add your shop description; describe 
-               what services or products you sell, your location, whether or not you provide delivery services, or a link to your website (if you have one).Once you are done, click 'save shop', and you will be 
-               redirected back to your shop page.</li>
-            </ol>
+            <div class="d-flex">
+                <ol class="explainer">
+                    <li>Click on Register at the top right of the homepage, fill in the details then submit.</li>
+                    <li>At the top of the home page click 'My shop'</li>
+                    <li> You will be redirected to your shop page,where you can upload, edit, view your products and connections.</li>
+                    <li>To edit your shop bio, click on the 'edit shop' button at the top of the page.</li>
+                    <li>You will be redirected to the shop edit page, where you can add your shop description; describe 
+                    what services or products you sell, your location, whether or not you provide delivery services, or a link to your website (if you have one).Once you are done, click 'save shop', and you will be 
+                    redirected back to your shop page.</li>
+                </ol>
+                <img src="/storage/about/about2.png" width="400" height="400" class="float-right">
+            </div>
             <button class="btn btn-primary text-white mb-3">REGISTER</button>
             <h3>Uploading a product</h3>
             <ol class="explainer"> 

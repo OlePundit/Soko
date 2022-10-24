@@ -217,26 +217,26 @@
         <div class="row justify-content-center g-5">
           <div class="col-lg-4 col-md-4 col-xs-4">
             <h3 class="footer-heading">About SellorBuyKe<h3>
-            <div class="fs-5">SellorBuyKe is an online market where buyers and sellers... </div>
-            <p><a href="about" class="footer-link-more">Learn More</a></p>
+            <div class="fs-5">Sellorbuyke.com is an online marketplace where wholesalers and retailers... </div>
+            <p><a href="/about" class="footer-link-more">Learn More</a></p>
           </div>
           <div class="col-6 col-lg-2 col-md-4 col-xs-4">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
               <li><a href="/" class="link"><i class="bi bi-chevron-right"></i> Home</a></li>
               <li><a href="/register" class="link"><i class="bi bi-chevron-right"></i> Create Shop</a></li>
-              <li><a href="about" class="link"><i class="bi bi-chevron-right"></i> Blog</a></li>
+              <li><a href="/about" class="link"><i class="bi bi-chevron-right"></i> Blog</a></li>
               <li><a href="contact" class="link"><i class="bi bi-chevron-right"></i> Contact us</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-2 col-md-4 col-xs-4">
             <h3 class="footer-heading">Categories</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="tech" class="link"><i class="bi bi-chevron-right"></i> Wine</a></li>
-              <li><a href="bizconomics" class="link"><i class="bi bi-chevron-right"></i> Whisky</a></li>
-              <li><a href="political" class="link"><i class="bi bi-chevron-right"></i> Gin</a></li>
-              <li><a href="religion" class="link"><i class="bi bi-chevron-right"></i> Vodka</a></li>
-              <li><a href="sports" class="link"><i class="bi bi-chevron-right"></i> Beer</a></li>
+              <li><a href="/wine" class="link"><i class="bi bi-chevron-right"></i> Wine</a></li>
+              <li><a href="/whisky" class="link"><i class="bi bi-chevron-right"></i> Whisky</a></li>
+              <li><a href="/gin" class="link"><i class="bi bi-chevron-right"></i> Gin</a></li>
+              <li><a href="/vodka" class="link"><i class="bi bi-chevron-right"></i> Vodka</a></li>
+              <li><a href="/beer" class="link"><i class="bi bi-chevron-right"></i> Beer</a></li>
 
 
             </ul>
@@ -255,10 +255,6 @@
             </div>
 
             <div class="credits">
-              <!-- All the links in the footer should remain intact. -->
-              <!-- You can delete the links only if you purchased the pro version. -->
-              <!-- Licensing information: https://bootstrapmade.com/license/ -->
-              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
               Designed by <a href="">Salvacar Technologies</a>
             </div>
 
