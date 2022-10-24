@@ -53,21 +53,10 @@ class ProductsController extends Controller
 
         ]);
 
-        if (request('offer')){
-            $price = $data['price'];
-            $offer = $data['offer'];
-            $computed =  $offer-$price;
-            $newcomputed = $computed / $price;
-            $finalcomputed = round($newcomputed * 100, 0);
-            number_format((float)$finalcomputed,0);
-            $finalcomputed = ['discount'=>$data];
-        }
-
     
 
         $product->update(array_merge(
             $data,
-            $finalcomputed ?? []
         ));
 
         return redirect("/p/{$product->id}");

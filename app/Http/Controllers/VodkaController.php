@@ -9,7 +9,7 @@ class VodkaController extends Controller
 {
     public function index()
     {
-        $beers = Product::where('category','vodka')->get();
+        $vodkas = Product::where('category','vodka')->get();
         return view('Vodka.index', compact('vodkas'));
     }
 }
