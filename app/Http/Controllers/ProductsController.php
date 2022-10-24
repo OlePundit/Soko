@@ -60,13 +60,13 @@ class ProductsController extends Controller
             $newcomputed = $computed / $price;
             $finalcomputed = round($newcomputed * 100, 0);
             number_format((float)$finalcomputed,0);
+            $finalcomputed = $data['discount'];
         }
 
     
 
         $product->update(array_merge(
             $data,
-            $finalcomputed
         ));
 
         return redirect("/p/{$product->id}");
