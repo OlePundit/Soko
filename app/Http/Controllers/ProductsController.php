@@ -60,7 +60,7 @@ class ProductsController extends Controller
             $newcomputed = $computed / $price;
             $finalcomputed = round($newcomputed * 100, 0);
             number_format((float)$finalcomputed,0);
-            $finalcomputed = ['discount'=>$data]
+            $finalcomputed = ['discount'=>$data];
         }
 
     
