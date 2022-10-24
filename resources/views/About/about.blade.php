@@ -12,7 +12,7 @@
             </p>
             <button class="btn btn-primary text-white">EXPLORE</button>
             <h2>Why Buy or Sell on SellorBuyKe?</h2>
-            <ol>
+            <ol class="explainer">
                 <li>It’s free and easy to use</li>
                 <li>We offer you the best assortment of liquor, sourced from all corners of the world. Right at the homepage, you will find some of our best deals.
                     Use the search button to find the beverage of your choice. 
