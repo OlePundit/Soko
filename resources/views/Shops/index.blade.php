@@ -20,7 +20,6 @@
         
 
             </div>
-            
             <div class="d-flex">
                 
                 @can ('update', $user->shop)
