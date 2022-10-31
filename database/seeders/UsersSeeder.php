@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class Categoriesseeder extends Seeder
+class UsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,47 +14,71 @@ class Categoriesseeder extends Seeder
      */
     public function run()
     {
-        $users = [
+        $user = [
             [
-                'category' => 'liquor',
+                'id' => 10,
+                'shop_name'=>'Sherehe Drinks',
+                'email'=> 'sherehe@gmail.com',
+                'password'=> '12345678'
             ],
             [
-                'category' => 'property',
+                'id' => 11,
+                'shop_name'=>'Liquor Shack',
+                'email'=> 'liquor@gmail.com',
+                'password'=> '12345678'
             ],
             [
-                'category' => 'food & grocery',
+                'id' => 12,
+                'shop_name'=>'Jay Wines',
+                'email'=> 'jay@gmail.com',
+                'password'=> '12345678'
             ],
             [
-                'category' => 'electronics',
+                'id' => 13,
+                'shop_name'=>'Thirsty oak',
+                'email'=> 'thirsty@gmail.com',
+                'password'=> '12345678'
             ],
             [
-                'category' => 'vehicles',
+                'id' => 14,
+                'shop_name'=>'The Bar',
+                'email'=> 'thebar@gmail.com',
+                'password'=> '12345678'
             ],
             [
-                'category' => 'home & office',
+                'id' => 15,
+                'shop_name'=>'Liquor Square',
+                'email'=> 'square@gmail.com',
+                'password'=> '12345678'
             ],
             [
-                'category' => 'clothing & jewellery',
+                'id' => 16,
+                'shop_name'=>'Kinywaji',
+                'email'=> 'kinywaji@gmail.com',
+                'password'=> '12345678'
             ],
             [
-                'category' => 'services',
+                'id' => 17,
+                'shop_name'=>'Liquor Spring',
+                'email'=> 'spring@gmail.com',
+                'password'=> '12345678'
             ],
             
             [
-                'category' => 'Commercial equipment',
+                'id' => 18,
+                'shop_name'=>'Liquor Stream',
+                'email'=> 'stream@gmail.com',
+                'password'=> '12345678'
             ],
             [
-                'category' => 'DIY',
-            ],
-            [
-                'category' => 'animals & pets',
-            ],
-            [
-                'category' => 'other',
+                'id' => 19,
+                'shop_name'=>'Good Fellaz',
+                'email'=> 'fellaz@gmail.com',
+                'password'=> '12345678'
             ],
             
 
         ];
-        Category::insert($categories);
+        User::insert($user);
     }
 }
