@@ -15,17 +15,17 @@ class ProductsController extends Controller
     {
        $marketplaces = Product::take(6)->get();
 
-       $wines = Product::where('category','wine')->take(6)->get();
+       $wines = Product::where('category','wine')->latest()->take(6)->get();
 
-       $whiskys = Product::where('category','whisky')->take(6)->get();
+       $whiskys = Product::where('category','whisky')->latest()->take(6)->get();
 
-       $vodkas = Product::where('category','vodka')->take(6)->get();
+       $vodkas = Product::where('category','vodka')->latest()->take(6)->get();
 
-       $gins = Product::where('category','gin')->take(6)->get();
+       $gins = Product::where('category','gin')->latest()->take(6)->get();
 
-       $beers = Product::where('category','beer')->take(6)->get();
+       $beers = Product::where('category','beer')->latest()->take(6)->get();
 
-       $mixers = Product::where('category','mixers')->take(6)->get();
+       $mixers = Product::where('category','mixers')->latest()->take(6)->get();
 
        $discounts = Product::where('discount','<',0)->orderByDesc('discount')->take(5)->get();
 

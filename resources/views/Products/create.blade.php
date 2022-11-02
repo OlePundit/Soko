@@ -57,6 +57,7 @@
                         <option value="1ltr">1ltr</option>
                         <option value="750ml">750ml</option>
                         <option value="500ml">500ml</option>
+                        <option value="500ml">350ml</option>
                         <option value="250ml">250ml</option>
                         <option value="other">Other</option>
                     </select>
