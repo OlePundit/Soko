@@ -14,14 +14,14 @@
     <meta name="robots" content="index, follow">
 
     <meta name="twitter:title" content="SellorBuyKe | Sell Online in Kenya | Wines & spirits near me">
-    <meta name="twitter:description" content="SellorBuyKe">
+    <meta name="twitter:description" content="<p>SellorBuyKe</p>">
     <meta name="twitter:image" content="https://www.sellorbuyke.com/storage/about/twittercard.jpg">
     <meta name="twitter:site" content="sellorbuyke.com">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@salvacar_ke">
     <meta property="og:type" content="article" />
     <meta property="og:title" content="SellorBuyKe | Sell Online in Kenya | Wines & spirits near me"/>
-    <meta property="og:description" content="Sellorbuyke.com is an online site where wines and spirits shops near you can sell online in Kenya for free. Our app helps you to get more sales and customers. 
-    If you want to buy alcohol from liquor stores near you then look no further." />
+    <meta property="og:description" content="<p>SellorBuyKe</p>" />
     <meta property="og:image" content="https://www.sellorbuyke.com/storage/about/twittercard.jpg" />
     <meta property="og:url" content="https://sellorbuyke.com" />
     <meta property="og:site_name" content="SellorBuyKe" />
