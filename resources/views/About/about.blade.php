@@ -7,9 +7,8 @@
             <h1>About Salvacar</h1>
             <div class="d-flex">
                 <p class="explainer">
-                    Sellorbuyke.com is an online marketplace where wholesalers and retailers in the wines and spirits industry can advertise their products for free, and gain access to an online market.
-                    Buyers also have the opportunity to choose their favourite alcohol from a wide variety of liquor products, right from the comfort of their own homes.
-                    Through availing cutting-edge technology and providing a seamless experience for our clients, we aim to increase the ease of doing business in the silicone savannah.
+                Sellorbuyke.com is an online site where wines and spirits shops near you can sell online in Kenya for free. Our app helps you to get more sales and customers. 
+                If you want to buy alcohol from liquor stores near you then look no further.
                 </p>
                 <img src="/storage/about/about1.png" width="400" height="400" class="float-right">
             </div>
