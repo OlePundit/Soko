@@ -42,6 +42,36 @@
             @endforeach
         </div>
     </div>
+    <div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade box">
+            <div class="numbertext">1 / 3</div>
+            <img src="/storage/about/somelier.png" style="width:100%">
+            <h2 class="caption">
+                <strong>Sell Liquor online for Free</strong>
+                <a href="/register">
+                    <button class="btn btn-primary text-white">Register</button>
+                </a>
+            </h2>
+        </div>
+
+        <div class="mySlides fade box">
+            <div class="numbertext">2 / 3</div>
+            <img src="/storage/about/sellorasset.png" style="width:100%">
+            <h2 class="caption"><strong>Buy alcohol from a liquor store near you</strong></h2>
+        </div>
+
+        <!-- Next and previous buttons -->
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+
     <div class="card my-2">
         <strong class="mx-3 my-1"><h2>Wine</h2></strong>
         <div class="row justify-content-center">
@@ -254,4 +284,20 @@
         </div>
     </div>
 </div>
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
 @endsection
