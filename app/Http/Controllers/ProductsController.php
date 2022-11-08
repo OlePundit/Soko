@@ -88,10 +88,15 @@ class ProductsController extends Controller
 
         $price = $data['price'];
         $offer = $data['offer'];
-        $computed =  $offer-$price;
-        $newcomputed = $computed / $price;
-        $finalcomputed = round($newcomputed * 100, 0);
-        number_format((float)$finalcomputed,0);
+        if (request('offer')) {
+            $computed =  $offer-$price;
+            $newcomputed = $computed / $price;
+            $finalcomputed = round($newcomputed * 100, 0);
+            number_format((float)$finalcomputed,0);
+        }else{
+            $finalcomputed=0;
+        }
+        
 
 
         auth()->user()->products()->create([

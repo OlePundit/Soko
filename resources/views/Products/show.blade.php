@@ -15,20 +15,22 @@
                 </div>
                 <div>
                     <div>
-                        <strong>
-                            <a href="/shop/{{$product->user_id}}">
-                                 <span class="text-dark">{{ $product->user->shop_name}}
+                        <h2>
+                            <strong>
+                                <a href="/shop/{{$product->user_id}}">
+                                    <span class="text-dark">{{ $product->user->shop_name}}
 
-                                </span>
-                            </a>
-                        </strong>
+                                    </span>
+                                </a>
+                            </strong>
+                        </h2>
                     </div>
                 </div>
             </div>
 
             <hr>
 
-            <p>{{$product->product_name}} <span>{{$product->volume}}</span></p>
+            <strong><h1>{{$product->product_name}} <span>{{$product->volume}}</span></h1></strong>
             @if($product->offer)
              {{$product->offer}}<span><strong> Ksh</strong> </span>
             <s><p>{{$product->price}}<span> KSH </span></p></s> 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="card my-2">
-        <strong class="mx-3 my-1">Top Offers</strong>
+        <strong class="mx-1 my-1 offer" style="background-color:#000"><h2 class="mx-2">Top Offers</h2></strong>
         <div class="row justify-content-center">
             @foreach ($discounts as $discount)          
             <div class="col pt-2 mx-2">          
@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="card my-2">
-        <strong class="mx-3 my-1">Wine</strong>
+        <strong class="mx-3 my-1"><h2>Wine</h2></strong>
         <div class="row justify-content-center">
             @foreach ($wines as $wine)          
             <div class="col pt-2 mx-2">          
@@ -85,7 +85,7 @@
         </div>
     </div>
     <div class="card my-2">
-        <strong class="mx-3 my-1">Whisky</strong>
+        <strong class="mx-3 my-1"><h2>Whisky</h2></strong>
         <div class="row justify-content-center">
             @foreach ($whiskys as $whisky)          
             <div class="col pt-2 mx-2">          
@@ -128,7 +128,7 @@
         </div>
     </div>
     <div class="card my-2">
-        <strong class="mx-3 my-1">Gin</strong>
+        <strong class="mx-3 my-1"><h2>Gin</h2></strong>
         <div class="row justify-content-center">
             @foreach ($gins as $gin)          
             <div class="col pt-2 mx-2">          
@@ -170,7 +170,7 @@
         </div>
     </div>
     <div class="card my-2">
-        <strong class="mx-3 my-1">Beer</strong>
+        <strong class="mx-3 my-1"><h2>Beer</h2></strong>
         <div class="row justify-content-center">
             @foreach ($beers as $beer)          
             <div class="col pt-2 mx-2">          
@@ -212,7 +212,7 @@
         </div>
     </div>
     <div class="card my-2">
-        <strong class="mx-3 my-1">All Products</strong>
+        <strong class="mx-3 my-1"><h2>All Products</h2></strong>
         <div class="row justify-content-center">
             @foreach ($marketplaces as $marketplace)          
             <div class="col pt-2 mx-2">          
