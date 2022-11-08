@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-<div class="card my-2">
+    <div class="card my-2">
         <strong class="mx-3 my-1">Top Offers</strong>
         <div class="row justify-content-center">
             @foreach ($discounts as $discount)          

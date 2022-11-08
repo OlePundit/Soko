@@ -39,8 +39,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
     <style>
-      .navbar{
-      height: 90px;
+      .navbar-custom {
+        height: 65px;
       }
       .link {
           text-decoration:none;
@@ -154,10 +154,11 @@
 </head>
 <body>
     <div id="app">
+        <div class="container">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand mt-2" href="/">
-                  <img src="/storage/uploads/soko.png" alt="" width="100" height="72" class="d-inline-block align-text-top">
+                  <img src="" alt="" width="60" height="36" class="d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -222,6 +223,30 @@
                 </div>
             </div>
         </nav>
+        </div>
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light py-0 bg-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/wine">Wine </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/whisky">Whisky</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/gin">Vodka</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/vodka">Gin</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/beer">Beer</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
 
         <main class="py-4">
             @yield('content')
