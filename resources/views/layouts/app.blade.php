@@ -154,7 +154,6 @@
 </head>
 <body>
     <div id="app">
-        <div class="container">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand mt-2" href="/">
@@ -223,30 +222,27 @@
                 </div>
             </div>
         </nav>
-        </div>
-        <div class="container">
-          <nav class="navbar navbar-expand-lg navbar-light py-0 bg-light">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="/wine">Wine </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/whisky">Whisky</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/gin">Vodka</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/vodka">Gin</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/beer">Beer</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-light py-0 bg-light">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/wine">Wine </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/whisky">Whisky</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/gin">Vodka</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/vodka">Gin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/beer">Beer</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
         <main class="py-4">
             @yield('content')
