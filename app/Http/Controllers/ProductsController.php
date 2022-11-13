@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Intervention\Image\Facades\Image;
 use App\Models\User;
-
+use Illuminate\Support\Str;
 
 class ProductsController extends Controller
 {
@@ -29,7 +29,7 @@ class ProductsController extends Controller
 
        $discounts = Product::where('discount','<',0)->orderByDesc('discount')->take(5)->get();
 
-       return view('Products.index', compact('marketplaces', 'wines', 'gins','beers', 'whiskys','mixers','discounts'));
+       return view('Products.index', compact('marketplaces', 'wines', 'gins','beers','vodkas', 'whiskys','mixers','discounts'));
     }
     public function edit(\App\Models\Product $product)
     {
@@ -50,6 +50,7 @@ class ProductsController extends Controller
             'description'=>'nullable',
             'offer'=>'nullable',
             'discount'=>'nullable',
+            'slug'=>'nullable',
 
         ]);
 
@@ -81,9 +82,16 @@ class ProductsController extends Controller
         'discount' => 'nullable',
         ]);
 
-        $imagePath = request('image')->store('uploads', 'public');
+        $filextension = request('image')->getClientOriginalExtension();
+        $extension = Str::lower($filextension);
+        $name = $data['product_name'];
+        $name = str_replace(' ', '-', $name);
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $filename = $name.time().'.'.$extension;
+
+        $imagePath = request('image')->storeAs('uploads', $filename, 'public');
+
+        $image = Image::make(public_path("storage/". $imagePath))->fit(1200, 1200);
         $image->save();
 
         $price = $data['price'];
@@ -96,6 +104,7 @@ class ProductsController extends Controller
         }else{
             $finalcomputed=0;
         }
+
         
 
 

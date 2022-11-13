@@ -68,11 +68,11 @@
                 
                   @if (Auth::user())
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="/shop/{{ Auth::user()->id }}">My Shop</a>
+                        <a class="nav-link" aria-current="page" href="/shop/{{ Auth::user()->id }}">My Shop</a>
                     </div>
 
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="/explore">Explore</a>
+                        <a class="nav-link" aria-current="page" href="/explore">Explore</a>
                     </div>
                   @endif  
 
@@ -116,7 +116,7 @@
         </nav>
         <nav class="navbar navbar-expand-lg navbar-light py-0 bg-light">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="padding-left:110px;">
               <li class="nav-item">
                 <a class="nav-link" href="/wine">Wine </a>
               </li>
@@ -148,7 +148,7 @@
         <div class="row justify-content-center g-5">
           <div class="col-lg-4 col-md-4 col-xs-4">
             <h3 class="footer-heading">About SellorBuyKe<h3>
-            <div class="fs-5">Sellorbuyke.com is an online marketplace where wholesalers and retailers... </div>
+            <div class="fs-5">Sellorbuyke.com is an online site where wines and spirits shops near you can sell online in Kenya for free... </div>
             <p><a href="/about" class="footer-link-more">Learn More</a></p>
           </div>
           <div class="col-6 col-lg-2 col-md-4 col-xs-4">
