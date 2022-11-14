@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-10 offset-2">
             <h1><strong>About SellorBuyKe</strong></h1>
-            <div class="d-flex">
+            <div class="d-flex col-lg-12 col-sm-4 col-md-6">
                 <p class="explainer">
                 Sellorbuyke.com is an online site where wines and spirits shops near you can sell online in Kenya for free. Our app helps you to get more sales and customers. 
                 If you want to buy alcohol from liquor stores near you then look no further.
                 </p>
-                <img src="/storage/about/about1.png" width="400" height="400" class="float-right" alt="Aboutsellorbuy">
+                <img src="/storage/about/about1.png" width="400" height="400" alt="Aboutsellorbuy">
             </div>
             <button class="btn btn-primary text-white mb-3">EXPLORE</button>
             <h2><strong>Why Buy or Sell on SellorBuyKe?</strong></h2>
@@ -24,8 +24,7 @@
             </ol>
 
             <h2><strong>How to sell on SellorBuyKe</strong></h2>
-            <div class="d-flex">
-                <img src="/storage/about/about2.png" width="400" height="400" class="float-right" alt="sellingonsellorbuyKe">
+            <div class="d-flex col-lg-12 col-sm-4 col-md-6">
                 <div>
                     <h3><strong>Registering your account and creating a shop</strong></h3>
                     <ol class="explainer">
@@ -38,6 +37,7 @@
                         redirected back to your shop page.</li>
                     </ol>
                 </div>
+                <img src="/storage/about/about2.png" width="400" height="400" alt="sellingonsellorbuyKe">
             </div>
             <button class="btn btn-primary text-white mb-3">REGISTER</button>
             <h3><strong>Uploading a product</strong></h3>

@@ -45,7 +45,7 @@
     <div class="slideshow-container">
 
     <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade box">
+        <div class="mySlides fade box col-lg-12 col-sm-4 col-md-6">
             <div class="numbertext">1 / 3</div>
             <img src="/storage/about/somelier.png" style="width:100%" alt="sell liquor">
             <h2 class="caption">
@@ -56,7 +56,7 @@
             </h2>
         </div>
 
-        <div class="mySlides fade box">
+        <div class="mySlides fade box col-lg-12 col-sm-4 col-md-6">
             <div class="numbertext">2 / 3</div>
             <img src="/storage/about/sellorasset.png" style="width:100%" alt="buy alcohol">
             <h2 class="caption"><strong>Buy alcohol from a liquor store near you</strong></h2>
