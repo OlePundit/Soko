@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             @foreach ($discounts as $discount)          
             <div class="col pt-2 mx-2">          
-                <a href="/p/{{$discount->id}}">
+                <a href="/products/{{$discount->slug}}">
                     <div class="box">
                         <img src="/storage/{{$discount->image}}" class="card-img-top rounded" style="max-width: 100%;" alt="{{$discount->product_name}}">
                         <div class="text">{{$discount->discount}}%</div>
@@ -75,9 +75,9 @@
     <div class="card my-2">
         <strong class="mx-3 my-1"><h2>Wine</h2></strong>
         <div class="row justify-content-center">
-            @foreach ($wines as $wine)          
+            @foreach ($wines as $wine)       
             <div class="col pt-2 mx-2">          
-                <a href="/p/{{$wine->id}}">
+                <a href="/products/{{$wine->slug}}">
                     <div class="box">
                         <img src="/storage/{{$wine->image}}" class="card-img-top rounded" style="max-width: 100%;" alt="{{$wine->product_name}}">
                         @if($wine->discount)
@@ -119,7 +119,7 @@
         <div class="row justify-content-center">
             @foreach ($whiskys as $whisky)          
             <div class="col pt-2 mx-2">          
-            <a href="/p/{{$whisky->id}}">
+            <a href="/products/{{$whisky->slug}}">
                 <div class="box">
                     <img src="/storage/{{$whisky->image}}" class="card-img-top rounded" style="max-width: 100%;" alt="$whisky->product_name">
                     @if($whisky->discount)
@@ -162,7 +162,7 @@
         <div class="row justify-content-center">
             @foreach ($gins as $gin)          
             <div class="col pt-2 mx-2">          
-            <a href="/p/{{$gin->id}}">
+            <a href="/products/{{$gin->slug}}">
                 <div class="box">
                     <img src="/storage/{{$gin->image}}" class="card-img-top rounded" style="max-width: 100%;" alt="{{$gin->product_name}}">
                     @if($gin->discount)
@@ -204,7 +204,7 @@
         <div class="row justify-content-center">
             @foreach ($vodkas as $vodka)          
             <div class="col pt-2 mx-2">          
-            <a href="/p/{{$vodka->id}}">
+            <a href="/products/{{$vodka->slug}}">
                 <div class="box">
                     <img src="/storage/{{$vodka->image}}" class="card-img-top rounded" style="max-width: 100%;" alt="{{$vodka->product_name}}">
                     @if($vodka->discount)
@@ -246,7 +246,7 @@
         <div class="row justify-content-center">
             @foreach ($beers as $beer)          
             <div class="col pt-2 mx-2">          
-            <a href="/p/{{$beer->id}}">
+            <a href="/products/{{$beer->slug}}">
                 <div class="box">
                     <img src="/storage/{{$beer->image}}" class="card-img-top rounded" style="max-width: 100%;" alt="{{$beer->product_name}}">
                     @if($beer->discount)
@@ -288,7 +288,7 @@
         <div class="row justify-content-center">
             @foreach ($marketplaces as $marketplace)          
             <div class="col pt-2 mx-2">          
-            <a href="/p/{{$marketplace->id}}">
+            <a href="/products/{{$marketplace->slug}}">
                 <div class="box">
                     <img src="/storage/{{$marketplace->image}}" class="card-img-top rounded" style="max-width: 100%;" alt="{{$marketplace->product_name}}">
                     @if($marketplace->discount)
