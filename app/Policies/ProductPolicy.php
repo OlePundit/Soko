@@ -51,9 +51,9 @@ class ProductPolicy
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Product $product)
+    public function update(User $user, Product $slug)
     {
-        return $user->id===$product->user_id;
+        return $user->id===$slug->user_id;
     }
 
     /**
