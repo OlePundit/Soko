@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('volume');
             $table->string('stock');
             $table->integer('price');
-            $table->text('description')->nullable();
+            $table->text('description')->nullable()->default();
             $table->string('image');      
             $table->timestamps();
         });
