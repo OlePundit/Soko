@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -46,10 +47,15 @@ class User extends Authenticatable
     {
         parent::boot();
         static::created(function ($user){
-        $user->shop()->create();
+            $user->shop()->create();
+        });
+        static::saving(function ($user) {
+            $user->slug = Str::slug($user->shop_name);
         });
     }
+    
 
+    
     public function products()
     {
         return $this->hasMany(Product::class)->latest();;
