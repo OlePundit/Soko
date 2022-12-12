@@ -68,7 +68,11 @@
                 
                   @if (Auth::user())
                     <div class="navbar-nav">
+<<<<<<< HEAD
                         <a class="nav-link" aria-current="page" href="/shop/{{ Auth::user()->id }}">My Shop</a>
+=======
+                        <a class="nav-link" aria-current="page" href="/shop/{{ Auth::user()->slug }}">My Shop</a>
+>>>>>>> 2ad33420bf1c579a0d2093115bcff79ab1db1291
                     </div>
 
                     <div class="navbar-nav">

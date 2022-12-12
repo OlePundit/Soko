@@ -11,37 +11,37 @@ use App\Models\Connect;
 
 class ShopsController extends Controller
 {
-    public function index(User $user)
+    public function index(User $slug)
     {
-        $connects = (auth()->user()) ? auth()->user()->connecting->contains($user->id) : false;
+        $connects = (auth()->user()) ? auth()->user()->connecting->contains($slug->slug) : false;
 
         $productCount = Cache::remember(
-            'count.products.'. $user->id,
+            'count.products.'. $slug->slug,
             now()->addSeconds(30), 
-            function() use ($user){
-                return $user->products->count();
+            function() use ($slug){
+                return $slug->products->count();
         });
         $connectsCount = Cache::remember(
-            'count.connects.' . $user->id,
+            'count.connects.' . $slug->id,
             now()->addSeconds(30),
-            function () use ($user) {
-                return $user->shop->connects->count();
+            function () use ($slug) {
+                return $slug->shop->connects->count();
             });
 
 
-        return view('Shops.index', compact('user','connects','productCount','connectsCount'));
+        return view('Shops.index', compact('slug','connects','productCount','connectsCount'));
     }
 
-    public function edit(User $user)
+    public function edit(User $slug)
     {
-       $this->authorize('update',$user->shop);
+       $this->authorize('update',$slug->shop);
 
-        return view('Shops.edit', compact('user'));
+        return view('Shops.edit', compact('slug'));
     }
 
-    public function update(User $user)
+    public function update(User $slug)
     {
-        $this->authorize('update',$user->shop);
+        $this->authorize('update',$slug->shop);
         $data = request()->validate([
             'description'=>'nullable',
             'url'=>'nullable',
@@ -62,7 +62,7 @@ class ShopsController extends Controller
             $imageArray ?? []
         ));
 
-        return redirect("/shop/{$user->id}");
+        return redirect("/shop/{$slug->slug}");
     }
 }
 

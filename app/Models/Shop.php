@@ -9,6 +9,7 @@ class Shop extends Model
 {
     protected $guarded = [];
 
+
     public function shopImage()
     {
         $imagePath = ($this->image) ? $this ->image : 'shop/profile.jpg';
