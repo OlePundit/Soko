@@ -48,25 +48,12 @@ class User extends Authenticatable
         parent::boot();
         static::created(function ($user){
             $user->shop()->create();
-<<<<<<< HEAD
-        });
-        static::saving(function ($user) {
-            $user->slug = Str::slug($user->shop_name);
-=======
->>>>>>> 2ad33420bf1c579a0d2093115bcff79ab1db1291
         });
         static::saving(function ($user) {
             $user->slug = Str::slug($user->shop_name);
         });
     }
     
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-    
-
     
     public function products()
     {

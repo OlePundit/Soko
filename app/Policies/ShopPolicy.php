@@ -51,9 +51,9 @@ class ShopPolicy
      * @param  \App\Models\Shop  $shop
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Shop $slug)
+    public function update(User $user, Shop $shop)
     {
-        return $user->id==$slug->user_id;
+        return $user->id==$shop->user_id;
     }
 
     /**

@@ -12,14 +12,6 @@ class Product extends Model
 
     protected $guarded = [];
 
-<<<<<<< HEAD
-=======
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
->>>>>>> 2ad33420bf1c579a0d2093115bcff79ab1db1291
-
     //protected static function boot()
     //{
     //    parent::boot();
