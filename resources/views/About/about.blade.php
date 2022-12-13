@@ -13,7 +13,7 @@
                 <img src="/storage/about/about1.png" width="400" height="400" alt="Aboutsellorbuy">
             </div>
             <button class="btn btn-primary text-white mb-3">EXPLORE</button>
-            <h2><strong>Why Buy or Sell on SellorBuyKe?</strong></h2>
+            <h2><strong>Why Buy or Sell Alcohol Online?</strong></h2>
             <ol class="explainer">
                 <li>It’s free and easy to use</li>
                 <li>We offer you the best assortment of liquor, sourced from all corners of the world. Right at the homepage, you will find some of our best deals.
@@ -23,7 +23,7 @@
                 <li>Easy registration process for sellers</li>
             </ol>
 
-            <h2><strong>How to sell on SellorBuyKe</strong></h2>
+            <h2><strong>How to Sell Online for Free on SellorBuyKe</strong></h2>
             <div class="d-flex col-lg-12 col-sm-4 col-md-6">
                 <div>
                     <h3><strong>Registering your account and creating a shop</strong></h3>

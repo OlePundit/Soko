@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.show')
 
 @section('content')
 <div class="container">
@@ -15,13 +15,15 @@
                 </div>
                 <div>
                     <div>
-                        <strong>
-                            <a href="/shop/{{$product->user_id}}">
-                                 <span class="text-dark">{{ $product->user->shop_name}}
+                        <h2>
+                            <strong>
+                                <a href="/shop/{{$product->user_id}}">
+                                    <span class="text-dark">{{ $product->user->shop_name}}
 
-                                </span>
-                            </a>
-                        </strong>
+                                    </span>
+                                </a>
+                            </strong>
+                        </h2>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="card my-2">
-        <strong class="mx-3 my-1">Top Offers</strong>
+        <strong class="mx-1 my-1 offer" style="background-color:#000"><h2 class="mx-2">Top Offers</h2></strong>
         <div class="row justify-content-center">
             @foreach ($discounts as $discount)          
             <div class="col pt-2 mx-2">          
@@ -42,8 +42,38 @@
             @endforeach
         </div>
     </div>
+    <div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade box col-lg-12 col-sm-4 col-md-6">
+            <div class="numbertext">1 / 3</div>
+            <img src="/storage/about/somelier.png" style="width:100%" alt="sell liquor">
+            <h2 class="caption">
+                <strong>Sell Liquor online for Free</strong>
+                <a href="/register">
+                    <button class="btn btn-primary text-white">Register</button>
+                </a>
+            </h2>
+        </div>
+
+        <div class="mySlides fade box col-lg-12 col-sm-4 col-md-6">
+            <div class="numbertext">2 / 3</div>
+            <img src="/storage/about/sellorasset.png" style="width:100%" alt="buy alcohol">
+            <h2 class="caption"><strong>Buy alcohol from a liquor store near you</strong></h2>
+        </div>
+
+        <!-- Next and previous buttons -->
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+    
     <div class="card my-2">
-        <strong class="mx-3 my-1">Wine</strong>
+        <strong class="mx-3 my-1"><h2>Wine</h2></strong>
         <div class="row justify-content-center">
             @foreach ($wines as $wine)          
             <div class="col pt-2 mx-2">          
@@ -85,7 +115,7 @@
         </div>
     </div>
     <div class="card my-2">
-        <strong class="mx-3 my-1">Whisky</strong>
+        <strong class="mx-3 my-1"><h2>Whisky</h2></strong>
         <div class="row justify-content-center">
             @foreach ($whiskys as $whisky)          
             <div class="col pt-2 mx-2">          
@@ -128,7 +158,7 @@
         </div>
     </div>
     <div class="card my-2">
-        <strong class="mx-3 my-1">Gin</strong>
+        <strong class="mx-3 my-1"><h2>Gin</h2></strong>
         <div class="row justify-content-center">
             @foreach ($gins as $gin)          
             <div class="col pt-2 mx-2">          
@@ -170,7 +200,49 @@
         </div>
     </div>
     <div class="card my-2">
-        <strong class="mx-3 my-1">Beer</strong>
+        <strong class="mx-3 my-1"><h2>Vodka</h2></strong>
+        <div class="row justify-content-center">
+            @foreach ($vodkas as $vodka)          
+            <div class="col pt-2 mx-2">          
+            <a href="/p/{{$vodka->id}}">
+                <div class="box">
+                    <img src="/storage/{{$vodka->image}}" class="card-img-top rounded" style="max-width: 100%;" alt="{{$vodka->product_name}}">
+                    @if($vodka->discount)
+                    <div class="text">{{$vodka->discount}}%</div>
+                    @endif
+                </div>
+            </a>
+                <div class="card-body">
+                    <div class="d-flex mb-1 align-items-center">
+                        <div style="padding-right: 20px;">
+                            <img src="{{$vodka->user->shop->shopImage()}}" 
+                            class="rounded-circle w-100" 
+                            style="max-width: 40px;" alt="{{$vodka->user->shop_name}}">
+                        </div>       
+                        <div>
+                            <div>
+                                <strong>
+                                    <a href="/shop/{{$vodka->user_id}}" class="link">
+                                        <span class="text-dark">{{$vodka->user->shop_name}}</span>
+                                    </a>
+                                </strong>   
+                            </div>
+                        </div>
+                    </div>
+                    <p class="font-weight-bold">{{$vodka->product_name}} <span>{{$vodka->volume}}</span></p>
+                    @if ($vodka->offer)
+                    <strong>{{$vodka->offer}}<span> KSH </span></strong> 
+                    <s><p>{{$vodka->price}}<span> KSH </span></p></s>  
+                    @else
+                    <strong>{{$vodka->price}}<span> KSH </span></strong> 
+                    @endif
+                </div> 
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="card my-2">
+        <strong class="mx-3 my-1"><h2>Beer</h2></strong>
         <div class="row justify-content-center">
             @foreach ($beers as $beer)          
             <div class="col pt-2 mx-2">          
@@ -212,7 +284,7 @@
         </div>
     </div>
     <div class="card my-2">
-        <strong class="mx-3 my-1">All Products</strong>
+        <strong class="mx-3 my-1"><h2>All Products</h2></strong>
         <div class="row justify-content-center">
             @foreach ($marketplaces as $marketplace)          
             <div class="col pt-2 mx-2">          
@@ -254,4 +326,19 @@
         </div>
     </div>
 </div>
+<script>
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
 @endsection
