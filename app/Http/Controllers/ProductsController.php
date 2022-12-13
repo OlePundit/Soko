@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Intervention\Image\Facades\Image;
 use App\Models\User;
-use Illuminate\Support\Str;use Illuminate\Support\Str;
+use Illuminate\Support\Str;
 
 class ProductsController extends Controller
 {
@@ -31,16 +31,16 @@ class ProductsController extends Controller
 
        return view('Products.index', compact('marketplaces', 'wines', 'gins','beers','vodkas','vodkas', 'whiskys','mixers','discounts'));
     }
-    public function edit(\App\Models\Product $slug)
+    public function edit(\App\Models\Product $product)
     {
-        $this->authorize('update', $slug);
+        $this->authorize('update', $product);
 
-        return view('Products.edit', compact('slug'));
+        return view('Products.edit', compact('product'));
     }
     
-    public function update(Product $slug)
+    public function update(Product $product)
     {
-        $this->authorize('update', $slug);
+        $this->authorize('update', $product);
         $data =  request()->validate([
             'category'=>'nullable',
             'product_name'=>'nullable',
@@ -51,27 +51,21 @@ class ProductsController extends Controller
             'offer'=>'nullable',
             'discount'=>'nullable',
 
-
-
         ]);
 
     
 
-        $slug->update(array_merge(
+        $product->update(array_merge(
             $data,
         ));
 
-        return redirect("/products/{$slug->slug}");
+        return redirect("/p/{$product->id}");
     }
     public function create()
     {
 
         return view('Products.create');
     }
-
-
-
-
     
     public function store()
     {
@@ -89,13 +83,7 @@ class ProductsController extends Controller
        
         ]);
 
-        $filextension = request('image')->getClientOriginalExtension();
-        $extension = Str::lower($filextension);
-        $name = $data['product_name'];
-        $name = str_replace(' ', '-', $name);
-
-        $filename = $name.time().'.'.$extension;
-
+      
         $filextension = request('image')->getClientOriginalExtension();
         $extension = Str::lower($filextension);
         $name = $data['product_name'];
@@ -106,17 +94,16 @@ class ProductsController extends Controller
         $imagePath = request('image')->storeAsAs('uploads', $filename, $filename, 'public');
 
         $image = Image::make(public_path("storage/". $imagePath))->fit(1200, 1200);
-        $image = Image::make(public_path("storage/". $imagePath))->fit(1200, 1200);
+        
         $image->save();
 
         $price = $data['price'];
         $offer = $data['offer'];
         if (request('offer')) {
-            if (request('offer')) {
             $computed =  $offer-$price;
-                $newcomputed = $computed / $price;
-                $finalcomputed = round($newcomputed * 100, 0);
-                number_format((float)$finalcomputed,0);
+            $newcomputed = $computed / $price;
+            $finalcomputed = round($newcomputed * 100, 0);
+            number_format((float)$finalcomputed,0);
         }else{
             $finalcomputed=0;
         }
@@ -125,15 +112,7 @@ class ProductsController extends Controller
         $str = Str::lower($slug);
         $slug = Str::slug($str, "-");
         $slug = $this->checkSlug($slug);
-        }else{
-            $finalcomputed=0;
-        }
-
-        $slug = $data['product_name'];
-        $str = Str::lower($slug);
-        $slug = Str::slug($str, "-");
-        $slug = $this->checkSlug($slug);
-
+           
 
         auth()->user()->products()->create([
             'product_name' => $data['product_name'],
@@ -149,13 +128,13 @@ class ProductsController extends Controller
             
         ]);
 
-        return redirect('/shop/' . auth()->user()->slug);     
+        return redirect('/shop/' . auth()->user()->id);     
     }
     
 
-    public function show(\App\Models\Product $slug)
+    public function show(\App\Models\Product $product)
     {
-        return view('Products.show', compact('slug'));
+        return view('Products.show', compact('product'));
     }
 
     protected function countEndingDigits($string)
@@ -194,9 +173,5 @@ class ProductsController extends Controller
     
     return $slug;
     }
-
-    
-
-    
 
 }
