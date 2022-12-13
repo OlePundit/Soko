@@ -91,7 +91,7 @@ class ProductsController extends Controller
 
         $filename = $name.time().'.'.$extension;
 
-        $imagePath = request('image')->storeAsAs('uploads', $filename, $filename, 'public');
+        $imagePath = request('image')->storeAs('uploads', $filename, 'public');
 
         $image = Image::make(public_path("storage/". $imagePath))->fit(1200, 1200);
         
