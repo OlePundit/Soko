@@ -4,9 +4,9 @@
 <div class="container">
     <div class = "row">
         <div class="col-6">
-            <img src="/storage/{{$product->image}}" class="w-1000 h-50 rounded" style="max-width:200%;">
+            <img itemprop="image" src="/storage/{{$product->image}}" class="w-1000 h-50 rounded" style="max-width:200%;">
         </div>
-        <div class="col-4">
+        <div class="col-4" itemscope itemtype="https://schema.org/Product">
             <div class="d-flex align-items-center">
                 <div style="padding-right: 20px;">
                      <img src="{{$product->user->shop->shopImage()}}" 
@@ -30,14 +30,14 @@
 
             <hr>
 
-            <p>{{$product->product_name}} <span>{{$product->volume}}</span></p>
+            <p itemprop="name">{{$product->product_name}} <span>{{$product->volume}}</span></p>
             @if($product->offer)
-             {{$product->offer}}<span><strong> Ksh</strong> </span>
+            <span>{{$product->offer}}<strong> Ksh</strong> </span>
             <s><p>{{$product->price}}<span> KSH </span></p></s> 
             @else 
-            <p><strong></strong> {{$product->price}}<span> Ksh </span></p> 
+            <p itemprop="price" content="{{$product->price}}"><strong></strong> {{$product->price}}<span itemprop="priceCurrency" content="KSH"> Ksh </span></p> 
             @endif
-            <p>{{$product->stock}}</p>
+            <p><link itemprop="availability" href="https://schema.org/InStock" />{{$product->stock}}</p>
             <p>{{$product->description}}</p>
             <div>
                 @can ('update', $product)   

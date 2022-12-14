@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('slug')->nullable()->default(' ')->after('discount');
+        Schema::table('shops', function (Blueprint $table) {
+            $table->string('locaton')->nullable()->default(' ');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('slug');
+        Schema::table('shops', function (Blueprint $table) {
+            $table->dropColumn('location');
         });
     }
 };

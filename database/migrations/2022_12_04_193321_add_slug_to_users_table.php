@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('slug')->nullable()->default(0)->after('shop_name');
+            $table->string('slug')->nullable()->default(' ')->after('shop_name');
         });
     }
 

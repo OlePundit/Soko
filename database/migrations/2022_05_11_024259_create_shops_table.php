@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->text('description')->nullable()->default(0);  
-            $table->string('url')->nullable()->default(0);
-            $table->string('image')->nullable()->default(0);
+            $table->text('description')->nullable()->default(' ');  
+            $table->string('url')->nullable()->default(' ');
+            $table->string('image')->nullable()->default(' ');
             $table->timestamps();
 
             $table->index('user_id');

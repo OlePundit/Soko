@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="d-flex flex-row justify-content-center">
+    <div vocab="https://schema.org/" typeof="LiquorStore" class="d-flex flex-row justify-content-center">
         <div class="col-lg-4 col-md-6 col-xs-6 pt-5">
             <div class="d-flex align-items-center pb-3">
-                <strong> {{ $user->shop_name}} </strong>
+                <h1 itemprop="name"><strong> {{ $user->shop_name}} </strong></h1>
                 <connect-button user-id="{{$user->id}}" connects="{{$connects}}"></connect-button>
             </div>
             @if ($user->shop->description)
-            <div>{{ $user->shop->description}}</div>
+            <div itemprop="description">{{ $user->shop->description}}</div>
             @endif
             @if($user->shop->url)
             <div><a href="#">{{ $user->shop->url}}</a></div>
@@ -40,7 +40,7 @@
               
         </div>
         <div class="col-lg-3 col-md-4 col-xs-4 p-5">
-            <img src="{{$user->shop->shopImage()}}" class="rounded-circle w-100" style="max-width:80%;">    
+            <img itemprop="image" src="{{$user->shop->shopImage()}}" class="rounded-circle w-100" style="max-width:80%;">    
         </div>
     </div>
 
