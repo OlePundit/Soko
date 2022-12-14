@@ -29,7 +29,7 @@
                 <label for="url" class="col-md-4 col-form-label text-md-end">Website (optional)</label>
 
                 <div class="col-md-6">
-                    <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ old('url') ?? $user->shop->url }}" required autocomplete="url" autofocus>
+                    <input id="url" type="text" class="form-control" name="url" value="{{ old('url') ?? $user->shop->url }}" required autocomplete="url" autofocus>
 
                     @error('url')
                         <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
 
                 <div class="col-md-6">
                     <mapbox-address-autofill access-token="pk.eyJ1IjoiZ2xlbm5vIiwiYSI6ImNsYm13ZmwwZzBsa3IzcG1zN2RycmZrMGIifQ.gtbCTCp8pdKshVzvvNUR6Q">
-                        <input type="text" class="form-control @error('url') is-invalid @enderror" name="location" autocomplete="street-address">
+                        <input type="text" class="form-control " name="location" autocomplete="street-address">
                     </mapbox-address-autofill>
 
                     @error('location')
