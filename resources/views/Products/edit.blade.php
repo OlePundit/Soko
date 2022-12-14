@@ -102,7 +102,7 @@
 
                 <div class="col-md-6">
                 <h5>Enter discounted price (optional)</h5>
-                    <input id="offer" type="text" class="form-control @error('offer') is-invalid @enderror" name="offer" value="{{ old('offer') ?? $product->offer}}" required autocomplete="offer" autofocus>
+                    <input id="offer" type="text" class="form-control @error('offer') is-invalid @enderror" name="offer" value="{{ old('offer') ?? $product->offer}}" autofocus>
 
                     @error('offer')
                         <span class="invalid-feedback" role="alert">

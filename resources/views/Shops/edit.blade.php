@@ -29,7 +29,7 @@
                 <label for="url" class="col-md-4 col-form-label text-md-end">Website (optional)</label>
 
                 <div class="col-md-6">
-                    <input id="url" type="text" class="form-control" name="url" value="{{ old('url') ?? $user->shop->url }}" required autocomplete="url" autofocus>
+                    <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ old('url') ?? $user->shop->url }}" autofocus>
 
                     @error('url')
                         <span class="invalid-feedback" role="alert">
