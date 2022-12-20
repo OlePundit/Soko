@@ -50,6 +50,10 @@ Route::get('/beer', [App\Http\Controllers\BeerController:: class, 'index']);
 
 Route::get('/vodka', [App\Http\Controllers\VodkaController:: class, 'index']);
 
+Route::get('/blog', [App\Http\Controllers\BlogController:: class, 'index']);
+
+Route::get('/blog/{slug}', [App\Http\Controllers\BlogController:: class, 'index']);
+
 
 
 

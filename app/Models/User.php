@@ -70,4 +70,8 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->belongsToMany(Shop::class);
     }
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class)->latest();;
+    }
 }
