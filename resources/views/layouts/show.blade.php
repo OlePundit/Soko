@@ -208,3 +208,35 @@
   </footer>
 </body>
 </html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "name": "SellorBuyKe",
+  "description": "Sellorbuyke.com is an online site where wines and spirits shops near you can sell online in Kenya for free. Our app helps you to get more sales and customers. 
+    If you want to buy alcohol from liquor stores near you then look no further",
+  "image": "https://www.sellorbuyke.com/storage/about/twittercard.jpg",
+  "logo": "https://www.sellorbuyke.com/storage/uploads/soko.png",
+  "parentOrganization": {
+    "@type": "OnlineBusiness",
+    "name": "Salvacar Technologies",
+    "url": "https://salvacar.co.ke/"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Kenya",
+    "addressLocality": "Nairobi"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingCount": 20,
+    "ratingValue": 4.7
+  },
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "userInteractionCount": 75,
+    "interactionType": "https://schema.org/TradeAction"
+  },
+  "foundingDate": "2019-10-24"
+}
+</script>

@@ -14,7 +14,8 @@
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
-        "livewire/livewire": "^2.10"
+        "livewire/livewire": "^2.10",
+        "tcg/voyager": "^1.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

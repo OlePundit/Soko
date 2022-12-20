@@ -169,8 +169,6 @@
               <li><a href="/gin" class="link"><i class="bi bi-chevron-right"></i> Gin</a></li>
               <li><a href="/vodka" class="link"><i class="bi bi-chevron-right"></i> Vodka</a></li>
               <li><a href="/beer" class="link"><i class="bi bi-chevron-right"></i> Beer</a></li>
-
-
             </ul>
           </div>
         </div>
@@ -187,7 +185,7 @@
             </div>
 
             <div class="credits">
-              Designed by <a href="">Salvacar Technologies</a>
+              Designed by <a href="https://www.salvacar.co.ke">Salvacar Technologies</a>
             </div>
 
           </div>

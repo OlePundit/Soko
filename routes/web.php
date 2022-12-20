@@ -55,3 +55,8 @@ Route::get('/vodka', [App\Http\Controllers\VodkaController:: class, 'index']);
 
 
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
