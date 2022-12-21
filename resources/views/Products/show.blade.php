@@ -18,7 +18,7 @@
                         <h2>
                             <strong>
                                 <a href="/shop/{{$product->user_id}}">
-                                    <span class="text-dark">{{ $product->user->shop_name}}
+                                    <span class="text-dark">{{ $product->user->name}}
 
                                     </span>
                                 </a>

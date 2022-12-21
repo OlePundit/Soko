@@ -24,7 +24,7 @@
                             <div>
                                 <strong>
                                     <a href="/shop/{{$discount->user_id}}" class="link">
-                                        <span class="text-dark">{{$discount->user->shop_name}}</span>
+                                        <span class="text-dark">{{$discount->user->name}}</span>
                                     </a>
                                 </strong>   
                             </div>
@@ -96,7 +96,7 @@
                             <div>
                                 <strong>
                                     <a href="/shop/{{$wine->user_id}}" class="link">
-                                        <span class="text-dark">{{$wine->user->shop_name}}</span>
+                                        <span class="text-dark">{{$wine->user->name}}</span>
                                     </a>
                                 </strong>   
                             </div>
@@ -139,7 +139,7 @@
                             <div>
                                 <strong>
                                     <a href="/shop/{{$whisky->user_id}}" class="link">
-                                        <span class="text-dark">{{$whisky->user->shop_name}}</span>
+                                        <span class="text-dark">{{$whisky->user->name}}</span>
                                     </a>
                                 </strong>   
                             </div>
@@ -181,7 +181,7 @@
                             <div>
                                 <strong>
                                     <a href="/shop/{{$gin->user_id}}" class="link">
-                                        <span class="text-dark">{{$gin->user->shop_name}}</span>
+                                        <span class="text-dark">{{$gin->user->name}}</span>
                                     </a>
                                 </strong>   
                             </div>
@@ -223,7 +223,7 @@
                             <div>
                                 <strong>
                                     <a href="/shop/{{$vodka->user_id}}" class="link">
-                                        <span class="text-dark">{{$vodka->user->shop_name}}</span>
+                                        <span class="text-dark">{{$vodka->user->name}}</span>
                                     </a>
                                 </strong>   
                             </div>
@@ -265,7 +265,7 @@
                             <div>
                                 <strong>
                                     <a href="/shop/{{$beer->user_id}}" class="link">
-                                        <span class="text-dark">{{$beer->user->shop_name}}</span>
+                                        <span class="text-dark">{{$beer->user->name}}</span>
                                     </a>
                                 </strong>   
                             </div>
@@ -307,7 +307,7 @@
                             <div>
                                 <strong>
                                     <a href="/shop/{{$marketplace->user_id}}" class="link">
-                                        <span class="text-dark">{{$marketplace->user->shop_name}}</span>
+                                        <span class="text-dark">{{$marketplace->user->name}}</span>
                                     </a>
                                 </strong>   
                             </div>

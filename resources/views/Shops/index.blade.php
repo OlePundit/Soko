@@ -5,7 +5,7 @@
     <div vocab="https://schema.org/" typeof="LiquorStore" class="d-flex flex-row justify-content-center">
         <div class="col-lg-4 col-md-6 col-xs-6 pt-5">
             <div class="d-flex align-items-center pb-3">
-                <h1 itemprop="name"><strong> {{ $user->shop_name}} </strong></h1>
+                <h1 itemprop="name"><strong> {{ $user->name}} </strong></h1>
                 <connect-button user-id="{{$user->id}}" connects="{{$connects}}"></connect-button>
             </div>
             @if ($user->shop->description)
