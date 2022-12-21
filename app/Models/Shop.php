@@ -23,4 +23,8 @@ class Shop extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class)->latest();
+    }
 }

@@ -2,23 +2,23 @@
 
 @section('content')
 <div class="container">
-    <div class="card my-2">
-        <strong class="mx-1 my-1 offer" style="background-color:#000"><h2 class="mx-2">Blog</h2></strong>
-        <div class="row justify-content-center">
+    <div class="my-2">
+        <strong class="mx-1 my-1 center"><h2 class="mx-2">Blog</h2></strong>
+        <div class="justify-content-center">
             @foreach ($blogs as $blog)          
             <div class="col pt-2 mx-2">          
                                
-                    <div class="box">
-                        <div class="text">{{$blog->title}}%</div>
-                        <img src="/storage/{{$blog->image}}" class="card-img-top rounded" style="max-width: 100%;">
-                        
-                    </div>
-                    <p class="font-weight-bold">{{$blog->blog}} </p>
+                <div class="mb-3">
+                    <h1>{{$blog->title}}</h1>
+                    <img src="/storage/{{$blog->image}}" class="card-img-top rounded" style="max-width: 50%;">
+                    
+                </div>
+                <div class="col-lg-8 col-md-6 col-sm-10 col-xs-12 blog">{!! $blog->blog !!}</div>
                 
                 <div class="card-body">
                     <div class="d-flex mb-1 align-items-center">
                         <div style="padding-right: 20px;">
-                            <img src="{{$blog->image}}" 
+                            <img src="{{$blog->user->shop->shopImage()}}" 
                             class="rounded-circle w-100" 
                             style="max-width: 40px;">
                         </div>       

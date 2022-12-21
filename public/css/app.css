@@ -213,7 +213,9 @@ b,
 strong {
   font-weight: bolder;
 }
-
+.center {
+  text-align: center;
+}
 small, .small {
   font-size: 0.875em;
 }
@@ -4192,8 +4194,11 @@ textarea.form-control-lg {
 }
 .link {
     text-decoration:none;
-    }
-    --------------------------------------------------------------*/
+}
+.blog {
+  font-size: 20px;
+} 
+    
 .footer {
 overflow: hidden;
 background: rgba(var(--color-black-rgb), 0.9);
