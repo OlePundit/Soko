@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->nullable()->default(' ');
+            $table->unsignedBigInteger('user_id')->nullable();
         });
     }
 
