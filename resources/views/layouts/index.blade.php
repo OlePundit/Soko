@@ -7,10 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{$user->shop_name}}</title>
+    <title>{{$user->name}}</title>
 
-    <meta name="description" content="Sellorbuyke.com is an online site where wines and spirits shops near you can sell online in Kenya for free. Our app helps you to get more sales and customers. 
-    If you want to buy alcohol from lSellorBuyKeiquor stores near you then look no further.">
+    <meta name="description" content="{{$user->shop->description}}">
     <meta name="robots" content="index, follow">
 
     <meta name="twitter:title" content="{{$user->name}}">
