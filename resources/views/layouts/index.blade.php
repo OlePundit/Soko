@@ -17,7 +17,7 @@
     <meta name="twitter:image" content="{{$user->shop->shopImage()}}">
     <meta name="twitter:site" content="sellorbuyke.com">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@salvacar_ke">
+    <meta name="twitter:creator" content="@sellorbuyke">
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{$user->name}}"/>
     <meta property="og:description" content="<p>{{$user->shop->description}}</p>" />
