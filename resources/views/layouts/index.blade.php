@@ -7,20 +7,19 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{$user->shop_name}}</title>
+    <title>{{$user->name}}</title>
 
-    <meta name="description" content="Sellorbuyke.com is an online site where wines and spirits shops near you can sell online in Kenya for free. Our app helps you to get more sales and customers. 
-    If you want to buy alcohol from lSellorBuyKeiquor stores near you then look no further.">
+    <meta name="description" content="{{$user->shop->description}}">
     <meta name="robots" content="index, follow">
 
-    <meta name="twitter:title" content="{{$user->shop_name}}">
+    <meta name="twitter:title" content="{{$user->name}}">
     <meta name="twitter:description" content="<p>{{$user->shop->description}}</p>">
     <meta name="twitter:image" content="{{$user->shop->shopImage()}}">
     <meta name="twitter:site" content="sellorbuyke.com">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@salvacar_ke">
+    <meta name="twitter:creator" content="@sellorbuyke">
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{$user->shop_name}}"/>
+    <meta property="og:title" content="{{$user->name}}"/>
     <meta property="og:description" content="<p>{{$user->shop->description}}</p>" />
     <meta property="og:image" content="{{$user->shop->shopImage()}}" />
     <meta property="og:url" content="https://sellorbuyke.com" />
