@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('author');
             $table->string('title');
-            $table->string('slug')->nullable()->default(' ');
+            $table->string('slug')->nullable();
             $table->text('blog');
             $table->string('image');
             $table->timestamps();           
